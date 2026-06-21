@@ -1,0 +1,48 @@
+---
+description: Code style standards and strict requirements for writing FastAPI endpoints
+globs: "app/backend/**/*"
+alwaysApply: false
+---
+
+# FastAPI Standards
+
+## Endpoint Requirements
+- Every route decorator must have `summary=` and `description=` (multiline strings go into the decorator, not the docstring).
+- Always specify `response_model=` so MCP tools and OpenAPI clients know the output schema.
+- Raise `HTTPException` with a descriptive `detail=` string — never return bare dicts for errors.
+- Inject DB sessions and shared clients via `Depends(get_db)` — never create sessions inside endpoint functions.
+
+## Router Conventions
+- One `router.py` per feature; include it in `main.py` with `prefix="/api/v1"`.
+- Router prefix is set on the `APIRouter(prefix="...", tags=["..."])` constructor — not on `include_router`.
+- Tags must be human-readable strings (shown in Swagger UI and used as MCP tool group names).
+
+## Lifespan Pattern
+Bootstrap tasks (DB migrations, Qdrant collection, seed data, singleton conversation creation) go in the `lifespan` async context manager, NOT in startup event handlers:
+```python
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+    # startup: create resources
+    yield
+    # shutdown: release resources
+```
+
+## MCP Compatibility
+`fastapi-mcp` auto-exposes all routes as tools. For a route to make a good MCP tool:
+1. The `summary=` must be a clear imperative sentence (e.g. "List recent chat sessions").
+2. Use Pydantic `response_model=` — the schema becomes the tool's output contract.
+3. Use Pydantic request bodies for POST/PUT — fields map directly to tool parameters.
+4. Every new `router.py` is picked up automatically — no manual registration needed.
+
+## WebSocket Streaming Pattern
+The chat endpoint uses WebSocket to stream RAG pipeline events:
+- Pipeline runs in a detached background task (`chat/background.py`) independent of the WS connection.
+- Events are JSON strings: `{"type": "status", "text": "..."}`, `{"type": "answer", "text": "..."}`, `{"type": "error", "text": "..."}`, `{"type": "done"}`.
+- On reconnect, the WS handler replays already-buffered events from `ConvTask.events[start_index:]`.
+- This pattern allows page refreshes mid-generation without losing the response.
+
+## Error Handling
+- `404` for missing resources (session, CV, stat row).
+- `422` is automatic from Pydantic validation — do not catch it manually.
+- `503` for external service failures (Qdrant, Ollama unreachable).
+- `204 No Content` for successful DELETE operations with no response body.

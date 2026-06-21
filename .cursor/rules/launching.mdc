@@ -1,0 +1,48 @@
+---
+description: Technical requirements for local Docker container orchestration, hot-reloading, and database migrations
+globs: "ci_cd/**/*, docker-compose.local.yml, **/alembic.ini"
+alwaysApply: false
+---
+
+# Docker Development & Execution Standards
+
+1. **Hot-Reloading (Debug Mode):** Configure Dockerfiles and volumes so that any code updates in backend or frontend instantly trigger a project reload without rebuilding the container. Ensure that any database model modifications are easily reflected in Alembic tracking.
+
+2. **Automated Migrations:** All pending database migrations must run and apply to the database automatically immediately after the project reloads/starts.
+
+3. **Unified Execution:** A single `docker-compose.local.yml` file located at the project root must launch both backend and frontend services simultaneously.
+
+4. **Container Idempotency:** Subsequent executions of the `docker-compose up` command must reuse existing layers, cached volumes, and containers. Prevent image re-construction or container duplication unless explicit changes to the configuration are made.
+
+## LLM Provider Strategy
+
+The backend **auto-selects** the LLM provider at startup (`ml/llm_service.py`):
+
+| Condition | Provider | Models |
+|---|---|---|
+| `GROQ_API_KEY` set in `.env` | **Groq** (cloud, LPU-fast) | `llama-3.3-70b-versatile` + `llama-3.1-8b-instant` |
+| No key | **Ollama** (local fallback) | `llama3.2` + `llama3.2:1b` |
+
+**Groq (recommended):** Set `GROQ_API_KEY` in `.env`. The `ollama` service in docker-compose is optional — the backend no longer depends on it when Groq is active.
+
+**Ollama (local fallback):** Remove `GROQ_API_KEY` from `.env`. The `ollama` service in docker-compose starts and pulls both models via `ci_cd/ollama/entrypoint.sh`.
+
+## Running Tests Inside Docker
+
+```bash
+# Unit + integration tests (fast, mocked externals):
+docker compose -f docker-compose.local.yml exec backend pytest
+
+# Behavioral RAG tests (real Ollama + Qdrant, ~1 min):
+docker compose -f docker-compose.local.yml exec backend pytest -m behavioral -v
+
+# Full Ragas eval (slow, ~20 min):
+docker compose -f docker-compose.local.yml exec -e RUN_EVAL_TESTS=1 backend pytest -m eval -v
+```
+
+## Alembic Migrations
+
+Run from inside the backend container (alembic.ini is in `/app/backend/`):
+```bash
+docker compose exec backend bash -c "cd /app && alembic -c /app/backend/alembic.ini upgrade head"
+```

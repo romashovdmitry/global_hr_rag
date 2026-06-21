@@ -1,0 +1,93 @@
+---
+description: Code coverage requirements, testing stack, and strict testing workflows for Backend components
+globs: "app/backend/**/*"
+alwaysApply: false
+---
+
+# Testing Standards & Workflow
+
+Every code modification, new endpoint, or business feature inside the backend must strictly comply with these testing requirements.
+
+## Testing Stack & Requirements
+
+- **Framework:** `pytest` + `pytest-asyncio` for async tests.
+- **Coverage Target:** >85% enforced via `pytest --cov`. Default `pytest` run excludes eval tests.
+- **Location:** `app/backend/tests/`.
+- **Database:** In-memory SQLite (`aiosqlite`) — no real PostgreSQL in unit tests.
+- **External services:** Mock Qdrant and fastembed in unit tests via `unittest.mock`.
+
+## Test Categories
+
+### 1. Unit / Integration Tests (default `pytest` run)
+
+Standard tests with mocked external services. Run inside Docker:
+
+```bash
+docker compose exec backend pytest
+```
+
+These cover: CV upload, vacancy ingestion (mocked Qdrant), chat CRUD, RRF algorithm.
+
+**DB isolation rule:** Tests must use `NullPool` when creating test DB engines to prevent asyncpg connection pool conflicts between async tests. Pattern:
+```python
+from sqlalchemy.pool import NullPool
+engine = create_async_engine(TEST_DB_URL, poolclass=NullPool)
+```
+
+### 2. Behavioral Tests (`pytest -m behavioral`)
+
+Fast end-to-end tests with **real** Qdrant and Ollama but targeted assertions.
+Each test sends one query through the full pipeline and checks a specific property.
+Runs in ~30–60 seconds per test (2–3 LLM calls each).
+
+```bash
+docker compose exec backend pytest -m behavioral -v
+```
+
+These cover the 8 critical RAG quality scenarios (see `rag-quality.mdc`):
+`off_topic_refusal`, `negative_constraint`, `aggregate_query`, `robustness_typos`, `colloquial_query`, `ambiguous_level`, `refusal_rate`.
+
+**DIP benefit:** To mock the LLM in behavioral tests, monkeypatch `backend.core.config.get_llm`. No node files need to change.
+
+### 3. Metric Evaluation Tests (`pytest -m eval`)
+
+**RAG quality evaluation using [Ragas](https://docs.ragas.io/).**  Requires live
+Qdrant and Ollama.  Run on demand inside Docker (set `RUN_EVAL_TESTS=1`):
+
+```bash
+RUN_EVAL_TESTS=1 docker compose exec backend pytest -m eval -v
+```
+
+#### Datasets
+
+- `app/backend/tests/eval_dataset.json` — original curated question/reference pairs.
+- `app/backend/tests/eval_dataset_golden.json` — 30+ questions across all 8 critical categories. Each entry: `id`, `category`, `question`, `reference`, `expected_behavior` (`answer`/`refusal`/`partial`), optional `excluded_terms`.
+
+#### Metrics & Thresholds
+
+| Metric | Threshold | What it detects |
+|---|---|---|
+| **Faithfulness** | ≥ 0.70 | Hallucinations (claims not in retrieved docs) |
+| **Answer Relevancy** | ≥ 0.65 | Off-topic or irrelevant answers |
+| **LLM Context Recall** | ≥ 0.60 | Retrieval missing key documents |
+| **LLM Context Precision** | ≥ 0.60 | Noisy retrieval (irrelevant docs) |
+
+LLM judge: **Ollama llama3.2** (same model used in production).
+Embeddings: **fastembed BAAI/bge-small-en-v1.5** (already downloaded).
+
+#### When to run eval tests
+
+- Before releasing a new version of the RAG pipeline
+- When changing: embedding model, Qdrant collection structure, LangGraph nodes,
+  prompts in any node, RRF parameters (`rrf_k`), `SUMMARIZE_TRIGGER` / `KEEP_RECENT`
+- Monthly as a regression baseline
+
+## Mandatory TDD / Refactoring Workflow
+
+For any changes made to the backend:
+
+1. **Review** existing tests in `app/backend/tests/` related to the affected module.
+2. **Implement** — every new endpoint or service method must have unit tests.
+3. **Verify** — `pytest` (unit) must pass with zero regressions.
+4. **Behavioral** — run `pytest -m behavioral` if the change touches any node, intent, or prompt.
+5. **Evaluate** — run `pytest -m eval` (with `RUN_EVAL_TESTS=1`) before releasing.

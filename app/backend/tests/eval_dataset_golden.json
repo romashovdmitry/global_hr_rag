@@ -1,0 +1,244 @@
+[
+  {
+    "id": "oos-1",
+    "category": "out_of_scope",
+    "question": "How do I cook borscht at home?",
+    "reference": "I'm a job vacancy assistant and can only help with IT career and job search questions.",
+    "expected_behavior": "refusal"
+  },
+  {
+    "id": "oos-2",
+    "category": "out_of_scope",
+    "question": "Who is stronger — Batman or Superman?",
+    "reference": "I'm a job vacancy assistant and can only help with IT career and job search questions.",
+    "expected_behavior": "refusal"
+  },
+  {
+    "id": "oos-3",
+    "category": "out_of_scope",
+    "question": "What is the capital of France?",
+    "reference": "I'm a job vacancy assistant and can only help with IT career and job search questions.",
+    "expected_behavior": "refusal"
+  },
+  {
+    "id": "oos-4",
+    "category": "out_of_scope",
+    "question": "Tell me a funny joke.",
+    "reference": "I'm a job vacancy assistant and can only help with IT career and job search questions.",
+    "expected_behavior": "refusal"
+  },
+  {
+    "id": "amb-1",
+    "category": "ambiguous",
+    "question": "I need a job with a high salary.",
+    "reference": "Several high-paying IT positions are available in the database, including Machine Learning Engineer (OmniAI Research, $8000), Rust Software Engineer (CryptaDrive, $8500), Solutions Architect (Global Tech Integrators, $9500), and MLOps Engineer (DeepMindset AI, $7500). The highest-paid roles require specialized skills in ML, Rust, or cloud architecture.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "amb-2",
+    "category": "ambiguous",
+    "question": "Looking for a Senior Rust developer position.",
+    "reference": "There is one Rust-related position in the database: Rust Software Engineer at CryptaDrive ($8500, Remote). While the vacancy does not explicitly specify seniority level, it requires 2+ years of commercial Rust experience and deep knowledge of memory safety and async Rust.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "amb-3",
+    "category": "ambiguous",
+    "question": "Find me a position as a Lead Python engineer.",
+    "reference": "There is no vacancy explicitly titled Lead Python Engineer in the database. The closest matches are Senior-level Python positions such as Data Engineer at NeuralMetrics ($6000) and Senior Data Scientist at InsightData Media ($6500). These require 3-5+ years of Python experience.",
+    "expected_behavior": "partial"
+  },
+  {
+    "id": "amb-4",
+    "category": "unsupported_criteria",
+    "question": "Show me positions in Berlin.",
+    "reference": "Our vacancy data does not contain location or country information and cannot filter by it. However, several fully remote positions are available that can be worked from any location.",
+    "expected_behavior": "limitation_notice"
+  },
+  {
+    "id": "amb-5",
+    "category": "unsupported_criteria",
+    "question": "Show me open Python Backend Developer positions in Europe.",
+    "reference": "Our vacancy data does not include location or country information and cannot filter by region or continent. Several Python Backend Developer remote positions are available in the database.",
+    "expected_behavior": "limitation_notice"
+  },
+  {
+    "id": "amb-6",
+    "category": "unsupported_criteria",
+    "question": "Find Python developer positions that offer health insurance and relocation.",
+    "reference": "Our vacancy data does not include information about benefits such as health insurance or relocation packages and cannot filter by these criteria. Here are Python developer positions based on available criteria.",
+    "expected_behavior": "limitation_notice"
+  },
+  {
+    "id": "agg-1",
+    "category": "aggregate",
+    "question": "What is the average salary for remote backend developer positions?",
+    "reference": "Based on available remote backend developer vacancies (Python, Go, Node.js), salaries range from approximately $3500 to $7000, with an average around $5000–$5500. High-end positions (Go, Senior level) reach $7000, while junior/part-time roles are around $3000–$3500.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "agg-2",
+    "category": "aggregate",
+    "question": "Compare salary levels for Python developers vs Go developers in the database.",
+    "reference": "Python developer salaries range from $1500 (Junior) to $6500 (Senior Data Scientist), with mid-level roles around $3000–$5000. Go developer salaries are generally higher: $4500 (mid-level microservices) to $7000 (Senior Go Engineer), reflecting Go's higher market demand.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "agg-3",
+    "category": "aggregate",
+    "question": "Which companies in the database offer fully remote positions?",
+    "reference": "Multiple companies offer fully remote positions, including ByteCraft Solutions (Python Backend), OmniAI Research (ML Engineer), Apex Data Labs (DevOps), NeuralMetrics (Data Engineer), NetShield Systems (SRE), CartBliss Ltd (Flutter), ParserForce Solutions (Scraping, part-time), CryptaDrive (Rust), FinTech Matrix (Go), ScaleUp Tech (SRE), and others.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "agg-4",
+    "category": "aggregate",
+    "question": "What technologies appear most frequently across all backend vacancies?",
+    "reference": "Python is the most frequently mentioned technology across backend vacancies, followed by Docker/Kubernetes for infrastructure, PostgreSQL for databases, and FastAPI/gRPC for API development. Go and Node.js appear in several positions. Redis and Kafka are common for high-load systems.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "neg-1",
+    "category": "negative",
+    "question": "Show me Python backend developer positions without Django and Flask.",
+    "reference": "Python backend positions that do not require Django or Flask include: Python Backend Developer (FastAPI, gRPC) at ByteCraft Solutions ($4500, Remote), Data Engineer at NeuralMetrics ($6000, Remote, uses Spark/Airflow), and Python Automation Specialist at FlowState Automation ($3000, part-time Remote).",
+    "expected_behavior": "answer",
+    "excluded_terms": ["Django", "Flask"]
+  },
+  {
+    "id": "neg-2",
+    "category": "negative",
+    "question": "Find DevOps positions without AWS.",
+    "reference": "DevOps/infrastructure positions not focused on AWS include: Cloud Infrastructure Engineer (Azure) at Vortex Cloud Corp ($5300, Hybrid) and MLOps Engineer at DeepMindset AI ($7500, Remote, uses Kubernetes/Helm).",
+    "expected_behavior": "answer",
+    "excluded_terms": ["AWS"]
+  },
+  {
+    "id": "neg-3",
+    "category": "negative",
+    "question": "Backend roles but not Java and not PHP.",
+    "reference": "Backend roles that do not require Java or PHP include Python, Go, Node.js, and Rust positions. Examples: Python Backend Developer at ByteCraft Solutions, Senior Go Engineer at CloudScale Systems, Backend Engineer (Node.js/NestJS) at SyncChat Labs.",
+    "expected_behavior": "answer",
+    "excluded_terms": ["Java", "PHP"]
+  },
+  {
+    "id": "neg-4",
+    "category": "negative",
+    "question": "Show me IT positions that do not require Kubernetes.",
+    "reference": "IT positions that do not mention Kubernetes in requirements include frontend roles (React/TypeScript at FinTech Flow), QA automation (SoftVibe Studio), Database Administrator (DataFortress), Python scraping (ParserForce Solutions), and several others focused on application-level development.",
+    "expected_behavior": "answer",
+    "excluded_terms": ["Kubernetes"]
+  },
+  {
+    "id": "cmp-1",
+    "category": "comparative",
+    "question": "What is the difference between the Python Backend Developer at ByteCraft Solutions and the Golang Backend Developer at FinTech Matrix in terms of salary and stack?",
+    "reference": "ByteCraft Solutions Python Backend Developer: $4500, uses FastAPI, gRPC, asyncio, PostgreSQL, Redis; fully remote, full-time. FinTech Matrix Golang Backend Developer: $4500, uses Go, gRPC, PostgreSQL, Kafka, Redis; fully remote, full-time. Salary is identical. ByteCraft focuses on Python/FastAPI microservices; FinTech Matrix migrates legacy code to Go microservices.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "cmp-2",
+    "category": "comparative",
+    "question": "Which position is better for someone with 4 years of Python experience and no Go knowledge: Data Engineer at NeuralMetrics or Backend Python Developer at ByteCraft?",
+    "reference": "For someone with 4 years of Python experience and no Go, ByteCraft Solutions (Python Backend Developer, $4500) is the better fit — it requires Python, FastAPI, and asyncio. NeuralMetrics Data Engineer ($6000) requires Spark and Airflow on top of Python, making it more demanding but higher-paying.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "cmp-3",
+    "category": "comparative",
+    "question": "Compare full-time remote ML engineer positions by salary.",
+    "reference": "Full-time remote ML positions: Machine Learning Engineer at OmniAI Research ($8000, LLMs/NLP/PyTorch), MLOps/MRE Engineer at DeepMindset AI ($7500, LLM deployment/Kubernetes). OmniAI pays slightly more but requires deep NLP/Transformers expertise, while DeepMindset focuses on production infrastructure for ML models.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "typo-1",
+    "category": "typos_synonyms",
+    "question": "Ищу работу питон бекенд разработчик",
+    "reference": "Python backend developer positions are available, including Python Backend Developer (FastAPI, gRPC) at ByteCraft Solutions ($4500, Remote) and Fullstack Engineer (Python/Vue.js) at Nexus Web Solutions ($5000).",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "typo-2",
+    "category": "typos_synonyms",
+    "question": "react js frontend job",
+    "reference": "Frontend developer position requiring React and TypeScript is available at FinTech Flow ($3800, Remote, Full-time). Requires React 18, TypeScript, Tailwind CSS, and Redux/Zustand.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "typo-3",
+    "category": "typos_synonyms",
+    "question": "dev ops k8s position needed",
+    "reference": "DevOps/infrastructure positions with Kubernetes include: DevOps Engineer (AWS & Terraform) at Apex Data Labs ($5500), SRE/Infrastructure Specialist at NetShield Systems ($5800), and MLOps Engineer at DeepMindset AI ($7500).",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "typo-4",
+    "category": "typos_synonyms",
+    "question": "server side engineer vacancy python",
+    "reference": "Server-side (backend) Python engineering positions include: Python Backend Developer at ByteCraft Solutions ($4500, FastAPI), Data Engineer at NeuralMetrics ($6000, Spark/Airflow), and Fullstack Engineer at Nexus Web Solutions ($5000, FastAPI/Django).",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "typo-5",
+    "category": "typos_synonyms",
+    "question": "machine learing NLP enginer remote",
+    "reference": "Machine Learning Engineer (LLMs/NLP) at OmniAI Research is available — $8000, fully remote, full-time. Requires PyTorch, Hugging Face, LangChain, and experience with fine-tuning (LoRA/QLoRA).",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "hall-1",
+    "category": "hallucination",
+    "question": "What soft skills are required in most vacancies?",
+    "reference": "The database vacancies primarily list technical requirements. Soft skills are rarely mentioned explicitly. One vacancy (Frontend Developer at FinTech Flow) mentions 'good communication skills'. The system should note that soft skills are mostly not specified rather than inventing typical soft skills.",
+    "expected_behavior": "partial"
+  },
+  {
+    "id": "hall-2",
+    "category": "hallucination",
+    "question": "What benefits and perks do companies offer?",
+    "reference": "Benefits are rarely mentioned explicitly in the database. Junior Python Developer at CodeStart Corp mentions 'mentorship and paid training courses'. Senior Go Engineer at CloudScale mentions 'high compensation and equity options'. Most vacancies do not specify additional benefits.",
+    "expected_behavior": "partial"
+  },
+  {
+    "id": "hall-3",
+    "category": "hallucination",
+    "question": "When was the Machine Learning Engineer position at OmniAI posted?",
+    "reference": "The posting date for the OmniAI Research Machine Learning Engineer position is not available in the data.",
+    "expected_behavior": "partial"
+  },
+  {
+    "id": "hall-4",
+    "category": "hallucination",
+    "question": "What is the team size at ByteCraft Solutions?",
+    "reference": "Team size information for ByteCraft Solutions is not available in the vacancy data.",
+    "expected_behavior": "partial"
+  },
+  {
+    "id": "rob-1",
+    "category": "robustness",
+    "question": "Слушай, ищу нормальную работу на питоне, чтобы платили достойно и не надо было в офис каждый день тащиться",
+    "reference": "Remote Python positions with good salaries include: Python Backend Developer at ByteCraft Solutions ($4500, Remote), Data Engineer at NeuralMetrics ($6000, Remote), and Senior Data Scientist at InsightData Media ($6500). All are full-time remote.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "rob-2",
+    "category": "robustness",
+    "question": "Хочу в айти, но не знаю с чего начать. Что есть для начинающих?",
+    "reference": "For beginners in IT, Junior Python Developer at CodeStart Corp ($1500, Hybrid) is available — it offers mentorship and paid training courses, requiring only basic Python knowledge and eagerness to learn.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "rob-3",
+    "category": "robustness",
+    "question": "I want something in security, like hacking or pentest stuff",
+    "reference": "Security Engineer (AppSec/Penetration Testing) at CyberGuard Labs ($6200, Remote, Full-time) is available. Requires 3+ years in offensive security or AppSec, SAST/DAST tools, OWASP Top 10 knowledge, and Python/Go scripting.",
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "rob-4",
+    "category": "robustness",
+    "question": "Есть что-нибудь по мобилкам?",
+    "reference": "Mobile Engineer (Flutter) position is available at CartBliss Ltd ($4000, Remote, Full-time). Requires 2+ years of Dart/Flutter experience, BLoC/Provider state management, and experience publishing to app stores.",
+    "expected_behavior": "answer"
+  }
+]

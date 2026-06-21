@@ -1,0 +1,9 @@
+{
+  "name": "vacancies_ingest",
+  "description": "Ingest all vacancies from the pre-built vacancies.json dataset into the Qdrant vector store. Generates dense (fastembed BAAI/bge-small-en-v1.5) and sparse (BM25) embeddings for every valid record, then upserts them with payload metadata. Invalid records (missing fields, empty descriptions, type mismatches) are skipped and reported in the errors list. The operation is idempotent — re-running overwrites existing points via deterministic UUIDs. Returns a summary with counts of total, ingested, skipped, and error records.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  }
+}

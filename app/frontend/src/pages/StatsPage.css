@@ -1,0 +1,252 @@
+/* ─── Stats page layout ──────────────────────────────────────────────────── */
+
+.stats-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: inherit;
+  color: var(--text, #e2e8f0);
+}
+
+.stats-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.stats-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.stats-clear-btn {
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ef444466;
+  background: transparent;
+  color: #f87171;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.stats-clear-btn:hover:not(:disabled) {
+  background: #ef44441a;
+  color: #fca5a5;
+}
+
+.stats-clear-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.stats-loading,
+.stats-error,
+.stats-empty {
+  padding: 3rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.stats-error {
+  color: #f87171;
+}
+
+/* ─── Summary cards ──────────────────────────────────────────────────────── */
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stats-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.stats-card--warn {
+  border-color: #f59e0b55;
+}
+
+.stats-card--danger {
+  border-color: #ef444455;
+}
+
+.stats-card__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+}
+
+.stats-card__value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+/* ─── Charts grid ────────────────────────────────────────────────────────── */
+
+.stats-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 700px) {
+  .stats-charts {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stats-chart-block {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.stats-chart-block__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+}
+
+/* ─── Bar chart ──────────────────────────────────────────────────────────── */
+
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.bar-chart__row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.bar-chart__label {
+  width: 160px;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bar-chart__track {
+  flex: 1;
+  height: 12px;
+  background: #0f172a;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.bar-chart__fill {
+  height: 100%;
+  border-radius: 6px;
+  min-width: 4px;
+  transition: width 0.4s ease;
+}
+
+.bar-chart__value {
+  width: 52px;
+  flex-shrink: 0;
+  text-align: right;
+  font-size: 0.8rem;
+  color: #e2e8f0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Table ──────────────────────────────────────────────────────────────── */
+
+.stats-table-block {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.stats-table-wrap {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 420px;
+  margin-top: 0.75rem;
+  /* Sticky header so column names stay visible while scrolling rows */
+}
+
+.stats-table thead th {
+  position: sticky;
+  top: 0;
+  background: #1e293b;
+  z-index: 1;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 700px;
+}
+
+.stats-table th {
+  text-align: left;
+  color: #64748b;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-bottom: 1px solid #334155;
+  white-space: nowrap;
+}
+
+.stats-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #1e293b;
+  color: #e2e8f0;
+  vertical-align: middle;
+}
+
+.stats-table tr:last-child td {
+  border-bottom: none;
+}
+
+.stats-table tr:hover td {
+  background: #263045;
+}
+
+.row--muted td {
+  opacity: 0.55;
+}
+
+.cell--time {
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.cell--query {
+  max-width: 300px;
+}
+
+.intent-badge {
+  display: inline-block;
+  padding: 0.15em 0.55em;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}

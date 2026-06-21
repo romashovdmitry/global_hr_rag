@@ -1,0 +1,14 @@
+{
+  "name": "chat_clear_session",
+  "description": "Permanently delete a chat session and all its messages (cascade). Use this when the user wants to start a fresh conversation. Returns 204 No Content on success, 404 if the session does not exist.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "session_id": {
+        "type": "string",
+        "description": "UUID of the session to delete."
+      }
+    },
+    "required": ["session_id"]
+  }
+}

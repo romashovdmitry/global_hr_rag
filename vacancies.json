@@ -1,0 +1,1217 @@
+[
+    {
+      "role": "Python Backend Developer (FastAPI, gRPC)",
+      "description_of_vacancy": "We are seeking a Backend Developer with 3+ years of experience to design high-performance microservices.\nRequirements:\n- Proficient in Python, FastAPI, and asyncio\n- Experience with gRPC and protocol buffers\n- Strong knowledge of PostgreSQL and Redis\nResponsibilities:\n- Develop and optimize scalable API endpoints\n- Integrate third-party payment gateways\n- Write clean, covered-by-tests code.",
+      "salary": 4500,
+      "company": "ByteCraft Solutions",
+      "contacts": "t.me/bytecraft_hr",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Senior Go Engineer",
+      "description_of_vacancy": "Join our infrastructure team to build high-load systems and internal tooling.\nRequirements:\n- 5+ years in software development, 3+ years with Golang\n- Deep understanding of concurrency patterns and channels\n- Experience with Docker, Kubernetes, and AWS (S3, EC2)\n- Knowledge of CI/CD pipelines (GitHub Actions).\nWe offer high compensation and equity options.",
+      "salary": 7000,
+      "company": "CloudScale Systems",
+      "contacts": "careers@cloudscale.io",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Frontend Developer (React / TypeScript)",
+      "description_of_vacancy": "Looking for a Frontend engineer to migrate our legacy dashboard to a modern tech stack.\nRequired tech stack:\n- React 18, TypeScript, Tailwind CSS\n- State management: Redux Toolkit or Zustand\n- Experience with Webpack/Vite optimization.\nGood communication skills and upper-intermediate English are required.",
+      "salary": 3800,
+      "company": "FinTech Flow",
+      "contacts": "t.me/fintech_flow_recruiting",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "DevOps Engineer (AWS & Terraform)",
+      "description_of_vacancy": "Our team needs an automation specialist to manage cloud environments.\nSkills:\n- AWS ecosystem management (IAM, VPC, EKS, RDS)\n- Infrastructure as Code via Terraform and Ansible\n- Setting up Prometheus and Grafana monitoring stacks.\nYou will be responsible for zero-downtime deployments.",
+      "salary": 5500,
+      "company": "Apex Data Labs",
+      "contacts": "hr@apexdata.com",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Data Engineer (Python, Spark, Airflow)",
+      "description_of_vacancy": "We are building an enterprise-level RAG system and need a Data Engineer to design robust ETL pipelines.\nWhat you need:\n- Expert knowledge of Python and SQL\n- Apache Spark, PySpark, Hadoop ecosystem\n- Orchestration with Apache Airflow or Prefect\n- Experience with Vector DBs (Qdrant, pgvector) is a huge plus.",
+      "salary": 6000,
+      "company": "NeuralMetrics",
+      "contacts": "t.me/neural_metrics_jobs",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "QA Automation Engineer (Python / Playwright)",
+      "description_of_vacancy": "Seeking an automated testing engineer to ensure the quality of our web application.\nRequirements:\n- Solid experience in Python testing frameworks (pytest)\n- UI automation with Playwright or Selenium\n- API testing (requests, Postman)\n- Understanding of Git and basic CI/CD concepts.",
+      "salary": 3200,
+      "company": "SoftVibe Studio",
+      "contacts": "talent@softvibe.dev",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Machine Learning Engineer (LLMs / NLP)",
+      "description_of_vacancy": "An AI startup is looking for an ML engineer to fine-tune open-source models.\nRequirements:\n- Strong background in NLP, Transformers, PyTorch\n- Experience with Hugging Face, LangChain, or LlamaIndex\n- Prompt engineering and fine-tuning (LoRA, QLoRA)\n- Deployment via vLLM or Ollama.",
+      "salary": 8000,
+      "company": "OmniAI Research",
+      "contacts": "t.me/omniai_recruiter",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Junior Python Developer",
+      "description_of_vacancy": "Great opportunity for a beginner programmer to grow within an experienced team.\nRequirements:\n- Basic knowledge of Python, Django, or Flask\n- Understanding of relational databases (SQL basics)\n- Eagerness to learn and read technical documentation.\nWe provide mentorship and paid training courses.",
+      "salary": 1500,
+      "company": "CodeStart Corp",
+      "contacts": "junior_hiring@codestart.io",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Solutions Architect (Cloud Infrastructure)",
+      "description_of_vacancy": "We are looking for a high-level architect to design secure multi-region architectures.\nKey aspects:\n- 7+ years in enterprise software engineering\n- AWS Certified Solutions Architect Professional preferred\n- Designing hybrid cloud environments and disaster recovery strategies\n- Negotiating technical vision with stakeholders.",
+      "salary": 9500,
+      "company": "Global Tech Integrators",
+      "contacts": "t.me/gti_architecture",
+      "status_of_role": ["Project", "Remote"]
+    },
+    {
+      "role": "SRE / Infrastructure Specialist",
+      "description_of_vacancy": "Maintain system availability, latency, and performance across production clusters.\nRequirements:\n- Deep Linux internals, networking, and system troubleshooting\n- Experience with incident response management\n- Log aggregation via ELK/EFK stack\n- Automation using Python or Bash scripts.",
+      "salary": 5800,
+      "company": "NetShield Systems",
+      "contacts": "sre_team@netshield.net",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Mobile Engineer (Flutter)",
+      "description_of_vacancy": "Develop cross-platform mobile apps for our e-commerce platform.\nRequirements:\n- 2+ years of production experience with Dart and Flutter\n- Understanding of BLoC or Provider state management\n- Publishing apps to Google Play and Apple App Store\n- Native iOS/Android integration knowledge is a plus.",
+      "salary": 4000,
+      "company": "CartBliss Ltd",
+      "contacts": "t.me/cartbliss_hr",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Database Administrator (PostgreSQL)",
+      "description_of_vacancy": "Responsible for performance tuning, backups, and replication of highly loaded databases.\nRequirements:\n- Expert level in PostgreSQL administration and optimization\n- Managing connection poolers (PgBouncer)\n- Writing optimized complex SQL queries and PL/pgSQL procedures\n- Setting up high-availability clusters (Patroni).",
+      "salary": 5200,
+      "company": "DataFortress",
+      "contacts": "dba_recruitment@datafortress.tech",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Backend Engineer (Node.js / NestJS)",
+      "description_of_vacancy": "Looking for a TypeScript backend specialist to join our real-time messaging team.\nTech Stack:\n- Node.js, NestJS, TypeScript\n- WebSockets / Socket.io for real-time events\n- Message brokers: RabbitMQ or Apache Kafka.\nExperience with microservices architecture is required.",
+      "salary": 4800,
+      "company": "SyncChat Labs",
+      "contacts": "jobs@syncchat.org",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Python Developer (Data Scraping & Automation)",
+      "description_of_vacancy": "We need a specialist to build and maintain high-volume data scrapers.\nRequirements:\n- Advanced Python scripts for parsing data\n- Scrapy, BeautifulSoup, Selenium, or Playwright\n- Overcoming anti-bot systems (Cloudflare, proxies)\n- Storing raw data chunks in MongoDB.",
+      "salary": 3500,
+      "company": "ParserForce Solutions",
+      "contacts": "t.me/parserforce_recruiting",
+      "status_of_role": ["Part-time", "Remote"]
+    },
+    {
+      "role": "Senior Digital Marketing Manager",
+      "description_of_vacancy": "We are seeking an experienced Senior Digital Marketing Manager to lead our user acquisition campaigns across Google Ads, Meta, and LinkedIn.\nRequirements:\n- 4+ years of experience in B2B SaaS marketing\n- Deep analytics skills (Google Analytics 4, HubSpot)\n- Proven track record of lowering CAC and increasing LTV\n- Excellent copywriting and campaign strategy skills.\nNote: This is a pure marketing management position with no engineering duties.",
+      "salary": 4200,
+      "company": "GrowthVibe Media",
+      "contacts": "t.me/growthvibe_talent",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Security Engineer (AppSec / Penetration Testing)",
+      "description_of_vacancy": "Looking for an Application Security Specialist to audit internal services and conduct regular penetration testing.\nRequirements:\n- 3+ years in offensive security or AppSec\n- Experience with SAST/DAST tools integrated into CI/CD pipelines\n- Solid understanding of OWASP Top 10 vulnerabilities\n- Scripting skills in Python or Go for internal security tools automation.",
+      "salary": 6200,
+      "company": "CyberGuard Labs",
+      "contacts": "sec_hiring@cyberguard.io",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Cloud Infrastructure Engineer (Azure)",
+      "description_of_vacancy": "We need a Cloud Specialist to manage our enterprise infrastructure hosted entirely on Microsoft Azure.\nRequirements:\n- Strong production experience with Azure (App Services, AKS, Azure SQL)\n- Infrastructure as Code via Terraform or Azure Bicep\n- Monitoring and logging configurations via Azure Monitor and Log Analytics.",
+      "salary": 5300,
+      "company": "Vortex Cloud Corp",
+      "contacts": "t.me/vortex_cloud_talent",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "MRE / MLOps Engineer",
+      "description_of_vacancy": "Join our AI research division to bridge the gap between machine learning models and production infrastructure.\nRequirements:\n- Experience deploying LLMs and computer vision models in production\n- Mastery of MLflow, Kubeflow, or Triton Inference Server\n- Core infrastructure automation via Kubernetes and Helm charts.",
+      "salary": 7500,
+      "company": "DeepMindset AI",
+      "contacts": "careers@deepmindset.ai",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Golang Backend Developer (Microservices)",
+      "description_of_vacancy": "Seeking a mid-level Go developer to rewrite legacy monolithic components into high-throughput microservices.\nTech Stack:\n- Go (Golang), HTTP/REST, gRPC\n- PostgreSQL, Kafka, Redis\n- Unit testing with Go mock frameworks.\nWe offer a modern stack and no legacy code overhead.",
+      "salary": 4500,
+      "company": "FinTech Matrix",
+      "contacts": "t.me/fintech_matrix_hr",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Fullstack Engineer (Python / Vue.js)",
+      "description_of_vacancy": "Looking for a versatile engineer who can equally handle backend business logic and frontend reactivity.\nRequirements:\n- Strong Python background with FastAPI or Django\n- Solid frontend experience with Vue 3 (Composition API) and Pinia\n- PostgreSQL, Docker, GitHub Actions.",
+      "salary": 5000,
+      "company": "Nexus Web Solutions",
+      "contacts": "hr@nexus_web.dev",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Site Reliability Engineer (SRE)",
+      "description_of_vacancy": "Our production systems handle thousands of requests per second. We need an expert to monitor, alert, and optimize performance.\nSkills:\n- Linux kernel tuning, advanced networking\n- Prometheus, Thanos, Grafana, Alertmanager\n- Coding in Python, Go, or Bash to automate operations.",
+      "salary": 6700,
+      "company": "ScaleUp Tech",
+      "contacts": "t.me/scaleup_sre_team",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Embedded Systems Engineer (C / C++)",
+      "description_of_vacancy": "Design and implement firmware for our next-generation smart home IoT devices.\nRequirements:\n- Expert-level C/C++ development for microcontrollers (STM32, ESP32)\n- FreeRTOS, bare-metal development experience\n- Reading hardware schematics, debugging via JTAG/oscilloscopes.",
+      "salary": 4800,
+      "company": "SmartHome Logic",
+      "contacts": "iot_jobs@smarthome.io",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Rust Software Engineer",
+      "description_of_vacancy": "Build a secure, blazingly fast encryption and data-processing layer for our distributed file storage.\nRequirements:\n- 2+ years of commercial development in Rust\n- Deep understanding of memory safety, lifetimes, and async Rust (Tokio)\n- Experience with systems programming or cryptography protocols.",
+      "salary": 8500,
+      "company": "CryptaDrive",
+      "contacts": "t.me/cryptadrive_recruiting",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Python Automation Specialist",
+      "description_of_vacancy": "Develop internal tooling, scripts, and automated bots to streamline company workflows.\nRequirements:\n- Strong core Python skills\n- Working with public and internal APIs (REST, GraphQL)\n- Docker basics, cron jobs, background workers setup (Celery).",
+      "salary": 3000,
+      "company": "FlowState Automation",
+      "contacts": "jobs@flowstate.tech",
+      "status_of_role": ["Part-time", "Remote"]
+    },
+    {
+      "role": "Senior Data Scientist",
+      "description_of_vacancy": "Extract insights and build predictive models based on massive user behavior datasets.\nRequirements:\n- High proficiency in Python (pandas, numpy, scikit-learn, LightGBM)\n- Advanced SQL skills for data extraction\n- Strong statistical background and A/B testing design experience.",
+      "salary": 6500,
+      "company": "InsightData Media",
+      "contacts": "t.me/insightdata_talent",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Network Software Engineer",
+      "description_of_vacancy": "Develop core components for virtualized network functions and routing protocols.\nRequirements:\n- Proficient in C or Go\n- Solid understanding of TCP/IP stack, BGP, OSPF, and DPDK\n- Experience working with Linux network internals and eBPF is a big plus.",
+      "salary": 5800,
+      "company": "NetCore Routing",
+      "contacts": "hr@netcore_routing.com",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Android Developer (Kotlin)",
+      "description_of_vacancy": "Join our mobile team to improve and add features to our main streaming application.\nRequirements:\n- 3+ years with Kotlin and Android SDK\n- Clean Architecture, MVVM, Jetpack Compose\n- Coroutines, Flow, Dagger/Hilt dependency injection.",
+      "salary": 4400,
+      "company": "StreamWave Ltd",
+      "contacts": "t.me/streamwave_android",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Blockchain Engineer (Solidity / Go)",
+      "description_of_vacancy": "Design and implement smart contracts for a high-throughput DeFi lending platform.\nRequirements:\n- Commercial experience with Solidity and Hardhat/Foundry\n- Deep knowledge of EVM internals and security vulnerabilities\n- Good understanding of backend integration via Go.",
+      "salary": 9000,
+      "company": "AlphaDeFi Labs",
+      "contacts": "recruiter@alphadefi.finance",
+      "status_of_role": ["Project", "Remote"]
+    },
+    {
+      "role": "Lead System Administrator",
+      "description_of_vacancy": "Manage on-premise hardware infrastructure, virtualization servers, and corporate network loops.\nRequirements:\n- Expert in Linux (Debian, RHEL) and Windows Server administration\n- Virtualization via VMware ESXi or Proxmox VE\n- Network management (Cisco, Mikrotik configuration).",
+      "salary": 4000,
+      "company": "Legacy Solutions Group",
+      "contacts": "t.me/legacysg_hr",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "description_of_vacancy": "CRITICAL VALIDATION FAULT TEST: This block represents a structural failure. The required field 'role' is missing completely from this payload schema. Pydantic ingestion pipelines should catch this missing key instantly and raise a ValidationError before any embedding computation takes place.",
+      "salary": 5000,
+      "company": "Broken Schema Inc",
+      "contacts": "t.me/null_pointer_talent",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "BI Developer (SQL, Tableau)",
+      "description_of_vacancy": "Build, optimize, and maintain interactive business intelligence dashboards for executive decision-making.\nRequirements:\n- Master level in complex SQL queries writing and analytical functions\n- Advanced Tableau/PowerBI dashboard design\n- Python scripting for data manipulation (pandas).",
+      "salary": 3700,
+      "company": "Metrics Group",
+      "contacts": "bi_hiring@metricsgroup.biz",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Python Backend Engineer (Data Integration)",
+      "description_of_vacancy": "Looking for a backend specialist to build complex data adapters and pipeline orchestrations.\nRequirements:\n- 3+ years of commercial Python experience\n- Advanced mastery of FastAPI, SQLAlchemy, Alembic\n- Designing ETL synchronization mechanisms with external APIs\n- Clean architecture approach, high unit-test coverage.",
+      "salary": 4700,
+      "company": "SyncHub Media",
+      "contacts": "t.me/synchub_recruiting",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Infrastructure Architect",
+      "description_of_vacancy": "Define, scale, and secure high-performance distributed infrastructure blueprints for financial transaction processing systems.\nRequirements:\n- Strong expertise in hybrid-cloud patterns (AWS & Bare-Metal)\n- Production-grade Kubernetes multi-cluster routing architectures\n- Comprehensive configuration management via Ansible, OpenTofu, or Terraform.",
+      "salary": 11000,
+      "company": "Prime Ledger FinTech",
+      "contacts": "architecture@primeledger.com",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Technical Support Engineer (L3 / DevOps)",
+      "description_of_vacancy": "Bridge the gap between pure operations and customer-facing incident reports by diving straight into production logs and debugging microservices.\nRequirements:\n- Proficient in Linux bash profiling, Docker container inspection, and advanced SQL querying\n- Ability to read and debug Python or Go code stack traces\n- Log aggregation dashboards analysis via Kibana or Grafana.",
+      "salary": 3400,
+      "company": "OpsBeacon Software",
+      "contacts": "t.me/opsbeacon_talent",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Golang Platform Developer",
+      "description_of_vacancy": "We need a backend systems engineer to focus on core latency optimization and building high-performance memory storage layers.\nRequirements:\n- Master level in Go runtime behaviors, GC tuning, pprof analysis\n- Working with direct IPC, low-level network sockets, shared memory structures\n- Concurrency controls and race conditions eradication.",
+      "salary": 7800,
+      "company": "QuantStream Labs",
+      "contacts": "careers@quantstream.io",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "UI/UX Engineer (React / Design Systems)",
+      "description_of_vacancy": "Maintain code-driven design consistency by owning our core component library and interface framework layer.\nRequirements:\n- Deep React, custom styling engines, Tailwind architecture, Storybook setups\n- Figma translation mechanics into dynamic components\n- Accessible patterns design (WCAG compliance, semantic web layout).",
+      "salary": 4100,
+      "company": "PixelCanvas Inc",
+      "contacts": "t.me/pixelcanvas_design",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Python Core Specialist (Async / Performance)",
+      "description_of_vacancy": "Rewrite computational constraints by building async concurrency libraries and optimized internal services.\nRequirements:\n- Deep understanding of Python GIL limitations, asyncio loop overrides, multiprocess IPC\n- Designing custom CExtensions or Cython bridges for performance bottlenecks\n- Profiling memory footprint profiles via tracemalloc.",
+      "salary": 6800,
+      "company": "HyperCompute AI",
+      "contacts": "hiring@hypercompute.ai",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "C++ Software Developer (HFT Platforms)",
+      "description_of_vacancy": "Write ultra-low-latency code for quantitative electronic trading frameworks executing thousands of updates per millisecond.\nRequirements:\n- Master level in modern C++ (C++20/23), template meta-programming, zero-allocation design\n- OS bypass networking patterns, DPDK drivers interaction, hardware profiling\n- Linux system calls engineering.",
+      "salary": 12000,
+      "company": "Vertex Trading Group",
+      "contacts": "t.me/vertex_quant_hiring",
+      "status_of_role": ["Project", "Hybrid"]
+    },
+    {
+      "role": "QA Engine Architect (Automation Ecosystems)",
+      "description_of_vacancy": "Design structural test orchestration pipelines to handle distributed parallel integration test runner farms.\nRequirements:\n- Setting up multi-node Selenium or Playwright grids inside Kubernetes environment clusters\n- Master level framework setups using PyTest plugins or custom test-harness utilities\n- Integrating continuous quality gating criteria into CI/CD build steps.",
+      "salary": 5400,
+      "company": "QualityScale Labs",
+      "contacts": "qa_careers@qualityscale.dev",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "MLOps Pipeline Developer",
+      "description_of_vacancy": "Automate data processing, feature engineering, validation checks, and automatic shadow routing deployment of fine-tuned models.\nRequirements:\n- Setting up feature stores (Feast) and pipeline engines (Dagster / Argo Workflows)\n- Model registry controls via MLflow or weights & biases\n- Deploying dynamic scaling serverless runtime run containers via KServe.",
+      "salary": 7200,
+      "company": "Apex Neural Works",
+      "contacts": "t.me/apex_neural_ops",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Linux Kernel & Driver Engineer",
+      "description_of_vacancy": "Build low-level embedded hardware interfaces, custom bootloaders, and bespoke operating system builds for proprietary computational hardware nodes.\nRequirements:\n- Expert level in embedded C, Linux kernel module development, device trees\n- Custom Yocto Project layout specifications building or Buildroot setups\n- Interfacing physical protocols (I2C, SPI, UART, PCIe layouts).",
+      "salary": 6300,
+      "company": "Lithium Core Systems",
+      "contacts": "hw_talent@lithiumcore.tech",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Data Warehouse Engineer (ClickHouse / Snowflake)",
+      "description_of_vacancy": "Own analytical system performance by structuring multi-terabyte warehouse platforms optimized for real-time reporting applications.\nRequirements:\n- High-level schema structures layout inside ClickHouse, Snowflake, or BigQuery\n- Sharding architectures planning, replication topologies, sorting keys tuning\n- Building pipeline ingest layers via Kafka Connect or custom Python loaders.",
+      "salary": 5900,
+      "company": "ClickStream Analytics",
+      "contacts": "t.me/clickstream_data_jobs",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "iOS Architect (Swift / Component Engineering)",
+      "description_of_vacancy": "Drive structural mobile architecture layouts by building modular dynamic packages used across multiple production application variants.\nRequirements:\n- Expert Swift development, SwiftUI paradigms, Combine frameworks or Async/Await loops\n- Core performance optimization, profiling memory leaks via Instruments\n- Enterprise level CI/CD distribution automation using Fastlane.",
+      "salary": 6500,
+      "company": "SwiftMotion Media",
+      "contacts": "ios_lead@swiftmotion.io",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "SecOps Automation Architect",
+      "description_of_vacancy": "Eliminate defensive response delays by building SOAR integrations, automated vulnerability remediation tasks, and server monitoring scripts.\nRequirements:\n- Scripting threat hunting logic via Python or Go scripts\n- SIEM detection engine configurations (Splunk / Elastic Security setups)\n- Automating cloud security guardrails via AWS Lambda triggers or Terraform validation gates.",
+      "salary": 6100,
+      "company": "IronClad Systems",
+      "contacts": "t.me/ironclad_secops",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Fullstack Python & Svelte Developer",
+      "description_of_vacancy": "Join a lean product prototyping team to build interactive, real-time AI context management dashboards from scratch.\nRequirements:\n- Clean API endpoints setups using FastAPI or LiteStar async frames\n- Highly responsive frontend UI building using Svelte / SvelteKit and state managers\n- Docker setups, basic deployment pipeline setups to AWS EC2 instances.",
+      "salary": 4600,
+      "company": "RapidPrototyping Inc",
+      "contacts": "talent@rapidprototype.ai",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Python Backend Developer (RAG Optimization)",
+      "description_of_vacancy": "CRITICAL VALIDATION FAULT TEST: This record contains a explicit Type Mismatch. The field 'status_of_role' is intentionally passed as a raw string literal instead of a valid bracket-wrapped list of strings. Ingestion systems matching this payload schema using standard strict type checkers must intercept this constraint failure immediately.",
+      "salary": 5500,
+      "company": "Type Mismatch Enterprises",
+      "contacts": "t.me/type_checker_fault",
+      "status_of_role": "Remote"
+    },
+    {
+      "role": "Backend Engineer (FastAPI / Qdrant Integration)",
+      "description_of_vacancy": "We are seeking a Backend Engineer specializing in vector databases to optimize our retrieval workflows.\nRequirements:\n- Commercial Python backend engineering experience with FastAPI\n- Deep knowledge of vector search indexing topologies, specifically Qdrant or Milvus\n- Implementing hybrid lexical-semantic filtering schemes.",
+      "salary": 5800,
+      "company": "VectorFlow AI",
+      "contacts": "careers@vectorflow.ai",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+  {
+    "role": "Python Backend Developer (Distributed Systems)",
+    "description_of_vacancy": "We are seeking an engineer to join our core team to scale event-driven microservices.\nRequirements:\n- 4+ years of Python engineering, excellent asyncio mastery\n- Hands-on experience with Kafka partitioning and replication layouts\n- Relational database schema design (PostgreSQL) and caching strategies (Redis).",
+    "salary": 5100,
+    "company": "DataMesh Technologies",
+    "contacts": "t.me/datamesh_backend",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "DevOps Engineer (Kubernetes & GitOps)",
+    "description_of_vacancy": "Own our cluster deployments by implementing modern continuous delivery workflows.\nRequirements:\n- Strong production knowledge of Kubernetes internal routing and multi-tenancy\n- GitOps implementation experience using ArgoCD or Flux\n- Writing and refactoring Helm charts or Kustomize manifests.",
+    "salary": 6000,
+    "company": "OpsVelocity Solutions",
+    "contacts": "careers@opsvelocity.net",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Senior Go Developer (High-Load Routing)",
+    "description_of_vacancy": "Build ultra-low latency API proxies handling hundreds of thousands of concurrent websocket loops.\nRequirements:\n- 5+ years of software development, 3+ with Go\n- High understanding of network protocols, memory management limits, profiling via pprof\n- Experience with non-relational key-value stores (ScyllaDB / Cassandra).",
+    "salary": 7600,
+    "company": "StreamFlow Networks",
+    "contacts": "t.me/streamflow_network_hr",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Data Platform Engineer (Python / Snowflake)",
+    "description_of_vacancy": "Design, orchestrate, and optimize core data warehouse architecture layers for scalable metrics collection.\nRequirements:\n- Strong Python and SQL analytics query tuning\n- Building pipeline ingest layers via DBT (Data Build Tool) and Airflow\n- Storing and partitioning large analytical datasets inside Snowflake warehouses.",
+    "salary": 6400,
+    "company": "MetricStack Inc",
+    "contacts": "data_talent@metricstack.io",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Frontend Architect (Next.js / TypeScript)",
+    "description_of_vacancy": "Lead frontend engineering practices by defining performance optimization schemes for a complex web ecosystem.\nRequirements:\n- Deep expert level in Next.js App Router mechanics, React Server Components (RSC)\n- Dynamic module federation configurations and bundling optimization via Vite or Turbopack\n- Core web vitals monitoring and styling performance.",
+    "salary": 7000,
+    "company": "NovaWeb Global",
+    "contacts": "t.me/novaweb_hiring",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "ML Application Engineer (LangChain / FastAPI)",
+    "description_of_vacancy": "Integrate advanced generative models into internal business software by building customizable agent loops.\nRequirements:\n- Solid Python development foundations with FastAPI\n- Practical execution of complex agent state mechanisms using LangGraph or LlamaIndex\n- Vector search optimization workflows via Qdrant setups.",
+    "salary": 5700,
+    "company": "Cognitive Agents Lab",
+    "contacts": "hr@cognitiveagents.ai",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "QA Automation Engineer (Go / K6 / Playwright)",
+    "description_of_vacancy": "Establish rigorous end-to-end integration automated check scripts and performance regression suites.\nRequirements:\n- Writing automated E2E test structures in TypeScript/Go using Playwright\n- Designing backend load-testing scenario definitions using Grafana k6 engine blocks\n- Integrating quality gating verification criteria inside GitLab CI runs.",
+    "salary": 4500,
+    "company": "TestHarness Software",
+    "contacts": "t.me/testharness_qa",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Security Systems Specialist",
+    "description_of_vacancy": "Conduct continuous internal auditing, threat surface analysis, and vulnerability mitigations across company infrastructure layers.\nRequirements:\n- Practical knowledge of network penetration testing workflows, IAM security structures\n- Managing identity provider configurations (Keycloak, Okta, OAuth2 frameworks)\n- Experience with automated vulnerability scanners.",
+    "salary": 5900,
+    "company": "Fortress Infosec",
+    "contacts": "sec_recruit@fortressinfosec.com",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Solutions Engineer (Cloud Migrations)",
+    "description_of_vacancy": "Help enterprise customers migrate their legacy technical architectures onto modern cloud systems efficiently.\nRequirements:\n- High-level technical presentation background alongside deep infrastructure skills\n- Hands-on provisioning using AWS or Azure tools\n- Containerization of monolithic solutions using Docker configurations.",
+    "salary": 6800,
+    "company": "CloudMigrate Group",
+    "contacts": "t.me/cloudmigrate_solutions",
+    "status_of_role": ["Project", "Remote"]
+  },
+  {
+    "role": "Technical Lead (Python & Cloud Architecture)",
+    "description_of_vacancy": "Manage a high-performing backend engineering group while owning system architecture blueprints and technical directions.\nRequirements:\n- 6+ years in Python microservices development ecosystems\n- Designing scalable AWS architectures using Terraform scripts\n- Outstanding mentorship patterns, code reviews management.",
+    "salary": 9000,
+    "company": "AlphaScale Corp",
+    "contacts": "tech_lead_hiring@alphascale.io",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Fullstack Software Engineer (Python / HTMX)",
+    "description_of_vacancy": "Build simple, ultra-fast, HTML-driven dashboards without frontend bloat by leveraging server-side reactivity.\nRequirements:\n- Strong core Python backend skills with FastAPI, Starlette, or Jinja2 templates\n- Utilizing HTMX and Alpine.js for interactive client-side element controls\n- Simple deployment topologies using Docker and Linux nodes.",
+    "salary": 4200,
+    "company": "LeanStack Media",
+    "contacts": "t.me/leanstack_media_jobs",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "SRE (Observability Ecosystems)",
+    "description_of_vacancy": "Drive reliability by building world-class distributed tracing, logging, and performance metrics platforms.\nRequirements:\n- Setting up OpenTelemetry collector farms, Jaeger/Tempo tracing topologies\n- Managing Prometheus monitoring configs and complex Grafana visualization sheets\n- Coding dashboard automation tools via Python or Go.",
+    "salary": 6200,
+    "company": "SignalTrack Software",
+    "contacts": "observability@signaltrack.net",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Database Engineer (NoSQL Sharding)",
+    "description_of_vacancy": "Optimize massive document and key-value storage performance arrays across globally distributed cluster regions.\nRequirements:\n- Deep structural knowledge of MongoDB, DynamoDB, or Cassandra internals\n- Resolving split-brain scenarios, tuning replication factors, configuring indexes\n- Data migration pipeline automation scripting using Python scripts.",
+    "salary": 5500,
+    "company": "GlobalData Storage",
+    "contacts": "t.me/globaldata_db_jobs",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Python API Developer (Third-Party Integrations)",
+    "description_of_vacancy": "CRITICAL VALIDATION FAULT TEST: This record features an Empty Description failure. The 'description_of_vacancy' field contains a strictly empty string literal. Embedding processing layers matching this schema must drop this input token payload before triggering downstream vector embedding calculations.",
+    "salary": 4800,
+    "company": "Empty Payload Corp",
+    "contacts": "t.me/validation_fault_empty",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Embedded Software Engineer (Rust / C++)",
+    "description_of_vacancy": "Implement firmware logic and high-speed hardware control integrations for specialized telecommunication nodes.\nRequirements:\n- Deep systems engineering patterns using bare-metal Rust or modern C++ layouts\n- Real-time operation constraints management, interrupt handling controls\n- Debugging using logic analyzers, JTAG equipment.",
+    "salary": 5300,
+    "company": "TeleCom Vector",
+    "contacts": "hardware@telecomvector.tech",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+    {
+      "role": "Python Backend Developer (Distributed Systems)",
+      "description_of_vacancy": "We are seeking an engineer to join our core team to scale event-driven microservices.\nRequirements:\n- 4+ years of Python engineering, excellent asyncio mastery\n- Hands-on experience with Kafka partitioning and replication layouts\n- Relational database schema design (PostgreSQL) and caching strategies (Redis).",
+      "salary": 5100,
+      "company": "DataMesh Technologies",
+      "contacts": "t.me/datamesh_backend",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "DevOps Engineer (Kubernetes & GitOps)",
+      "description_of_vacancy": "Own our cluster deployments by implementing modern continuous delivery workflows.\nRequirements:\n- Strong production knowledge of Kubernetes internal routing and multi-tenancy\n- GitOps implementation experience using ArgoCD or Flux\n- Writing and refactoring Helm charts or Kustomize manifests.",
+      "salary": 6000,
+      "company": "OpsVelocity Solutions",
+      "contacts": "careers@opsvelocity.net",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Senior Go Developer (High-Load Routing)",
+      "description_of_vacancy": "Build ultra-low latency API proxies handling hundreds of thousands of concurrent websocket loops.\nRequirements:\n- 5+ years of software development, 3+ with Go\n- High understanding of network protocols, memory management limits, profiling via pprof\n- Experience with non-relational key-value stores (ScyllaDB / Cassandra).",
+      "salary": 7600,
+      "company": "StreamFlow Networks",
+      "contacts": "t.me/streamflow_network_hr",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Data Platform Engineer (Python / Snowflake)",
+      "description_of_vacancy": "Design, orchestrate, and optimize core data warehouse architecture layers for scalable metrics collection.\nRequirements:\n- Strong Python and SQL analytics query tuning\n- Building pipeline ingest layers via DBT (Data Build Tool) and Airflow\n- Storing and partitioning large analytical datasets inside Snowflake warehouses.",
+      "salary": 6400,
+      "company": "MetricStack Inc",
+      "contacts": "data_talent@metricstack.io",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Frontend Architect (Next.js / TypeScript)",
+      "description_of_vacancy": "Lead frontend engineering practices by defining performance optimization schemes for a complex web ecosystem.\nRequirements:\n- Deep expert level in Next.js App Router mechanics, React Server Components (RSC)\n- Dynamic module federation configurations and bundling optimization via Vite or Turbopack\n- Core web vitals monitoring and styling performance.",
+      "salary": 7000,
+      "company": "NovaWeb Global",
+      "contacts": "t.me/novaweb_hiring",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "ML Application Engineer (LangChain / FastAPI)",
+      "description_of_vacancy": "Integrate advanced generative models into internal business software by building customizable agent loops.\nRequirements:\n- Solid Python development foundations with FastAPI\n- Practical execution of complex agent state mechanisms using LangGraph or LlamaIndex\n- Vector search optimization workflows via Qdrant setups.",
+      "salary": 5700,
+      "company": "Cognitive Agents Lab",
+      "contacts": "hr@cognitiveagents.ai",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "QA Automation Engineer (Go / K6 / Playwright)",
+      "description_of_vacancy": "Establish rigorous end-to-end integration automated check scripts and performance regression suites.\nRequirements:\n- Writing automated E2E test structures in TypeScript/Go using Playwright\n- Designing backend load-testing scenario definitions using Grafana k6 engine blocks\n- Integrating quality gating verification criteria inside GitLab CI runs.",
+      "salary": 4500,
+      "company": "TestHarness Software",
+      "contacts": "t.me/testharness_qa",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Security Systems Specialist",
+      "description_of_vacancy": "Conduct continuous internal auditing, threat surface analysis, and vulnerability mitigations across company infrastructure layers.\nRequirements:\n- Practical knowledge of network penetration testing workflows, IAM security structures\n- Managing identity provider configurations (Keycloak, Okta, OAuth2 frameworks)\n- Experience with automated vulnerability scanners.",
+      "salary": 5900,
+      "company": "Fortress Infosec",
+      "contacts": "sec_recruit@fortressinfosec.com",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Solutions Engineer (Cloud Migrations)",
+      "description_of_vacancy": "Help enterprise customers migrate their legacy technical architectures onto modern cloud systems efficiently.\nRequirements:\n- High-level technical presentation background alongside deep infrastructure skills\n- Hands-on provisioning using AWS or Azure tools\n- Containerization of monolithic solutions using Docker configurations.",
+      "salary": 6800,
+      "company": "CloudMigrate Group",
+      "contacts": "t.me/cloudmigrate_solutions",
+      "status_of_role": ["Project", "Remote"]
+    },
+    {
+      "role": "Technical Lead (Python & Cloud Architecture)",
+      "description_of_vacancy": "Manage a high-performing backend engineering group while owning system architecture blueprints and technical directions.\nRequirements:\n- 6+ years in Python microservices development ecosystems\n- Designing scalable AWS architectures using Terraform scripts\n- Outstanding mentorship patterns, code reviews management.",
+      "salary": 9000,
+      "company": "AlphaScale Corp",
+      "contacts": "tech_lead_hiring@alphascale.io",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Fullstack Software Engineer (Python / HTMX)",
+      "description_of_vacancy": "Build simple, ultra-fast, HTML-driven dashboards without frontend bloat by leveraging server-side reactivity.\nRequirements:\n- Strong core Python backend skills with FastAPI, Starlette, or Jinja2 templates\n- Utilizing HTMX and Alpine.js for interactive client-side element controls\n- Simple deployment topologies using Docker and Linux nodes.",
+      "salary": 4200,
+      "company": "LeanStack Media",
+      "contacts": "t.me/leanstack_media_jobs",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "SRE (Observability Ecosystems)",
+      "description_of_vacancy": "Drive reliability by building world-class distributed tracing, logging, and performance metrics platforms.\nRequirements:\n- Setting up OpenTelemetry collector farms, Jaeger/Tempo tracing topologies\n- Managing Prometheus monitoring configs and complex Grafana visualization sheets\n- Coding dashboard automation tools via Python or Go.",
+      "salary": 6200,
+      "company": "SignalTrack Software",
+      "contacts": "observability@signaltrack.net",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Database Engineer (NoSQL Sharding)",
+      "description_of_vacancy": "Optimize massive document and key-value storage performance arrays across globally distributed cluster regions.\nRequirements:\n- Deep structural knowledge of MongoDB, DynamoDB, or Cassandra internals\n- Resolving split-brain scenarios, tuning replication factors, configuring indexes\n- Data migration pipeline automation scripting using Python scripts.",
+      "salary": 5500,
+      "company": "GlobalData Storage",
+      "contacts": "t.me/globaldata_db_jobs",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Python API Developer (Third-Party Integrations)",
+      "description_of_vacancy": "CRITICAL VALIDATION FAULT TEST: This record features an Empty Description failure. The 'description_of_vacancy' field contains a strictly empty string literal. Embedding processing layers matching this schema must drop this input token payload before triggering downstream vector embedding calculations.",
+      "salary": 4800,
+      "company": "Empty Payload Corp",
+      "contacts": "t.me/validation_fault_empty",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Embedded Software Engineer (Rust / C++)",
+      "description_of_vacancy": "Implement firmware logic and high-speed hardware control integrations for specialized telecommunication nodes.\nRequirements:\n- Deep systems engineering patterns using bare-metal Rust or modern C++ layouts\n- Real-time operation constraints management, interrupt handling controls\n- Debugging using logic analyzers, JTAG equipment.",
+      "salary": 5300,
+      "company": "TeleCom Vector",
+      "contacts": "hardware@telecomvector.tech",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+  {
+    "role": "Python Backend Developer (Async Integrations)",
+    "description_of_vacancy": "Looking for a backend engineer to develop real-time synchronization services and handle stream processing.\nRequirements:\n- 3+ years of commercial Python experience, strong asyncio and typing libraries usage\n- Working with Redis streams or RabbitMQ pub-sub topologies\n- Writing raw SQL performance optimizations and profiling migrations.",
+    "salary": 4900,
+    "company": "LinkCore Systems",
+    "contacts": "t.me/linkcore_backend",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Go Systems Developer (Distributed Ledger)",
+    "description_of_vacancy": "Design and build low-latency node synchronization networks and high-throughput data replication engines.\nRequirements:\n- Proficient in Go (Golang) and low-level concurrency mechanisms\n- Experience with gRPC, Protocol Buffers, and custom multiplexing routers\n- Understanding of Raft consensus or similar state machine replication schemas.",
+    "salary": 8200,
+    "company": "ChainState Labs",
+    "contacts": "careers@chainstate.io",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "DevOps Engineer (Cloud Infrastructure & Security)",
+    "description_of_vacancy": "Secure and scale cloud configurations across multi-region environments via automation tools.\nRequirements:\n- Enterprise experience with AWS (EKS, RDS, KMS, IAM isolation)\n- Writing modular, dry Terraform code, managing state locks securely\n- Hardening container runtimes and implementing network security policies.",
+    "salary": 6100,
+    "company": "SecOps Matrix",
+    "contacts": "t.me/secops_matrix_hr",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Data Architect (Vector Databases & Analytics)",
+    "description_of_vacancy": "Lead the design of hybrid analytical data systems, managing unstructured text indexes and semantic vector retrieval storage.\nRequirements:\n- Setting up and tuning production Qdrant, Milvus, or pgvector installations\n- Experience building semantic chunking strategies for multi-million document pools\n- Expert level in distributed analytical engines (ClickHouse / Snowflake).",
+    "salary": 9500,
+    "company": "VectorIntelligence",
+    "contacts": "architecture@vectorintel.ai",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Frontend Developer (React / Next.js State Optimization)",
+    "description_of_vacancy": "Optimize performance of high-density dashboard layouts handling continuous streaming updates.\nRequirements:\n- Deep React 18 / 19 hooks optimization, minimizing rerenders on real-time tickers\n- State sync strategies with WebSockets via Zustand or custom contexts\n- Advanced layout rendering strategies via Next.js App Router templates.",
+    "salary": 4300,
+    "company": "TickStream UI",
+    "contacts": "t.me/tickstream_ui_jobs",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Python Automation Engineer (AI Agents)",
+    "description_of_vacancy": "Build autonomic workflow execution agents that orchestrate data collection and processing sequences.\nRequirements:\n- Core Python expertise, handling dynamic schemas with Pydantic v2\n- Building complex workflow graphs via LangGraph or custom state controllers\n- Interfacing with local LLM runtimes (Ollama / vLLM execution).",
+    "salary": 5600,
+    "company": "AutoNode Corp",
+    "contacts": "hr@autonode.dev",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "QA Engineer (Backend Automation & Stress Testing)",
+    "description_of_vacancy": "Validate high-throughput API endpoints by creating performance regression and load profiles.\nRequirements:\n- Comprehensive backend API verification loops using Python and PyTest hooks\n- Writing stress-test test descriptions using Locust or Grafana k6 execution blocks\n- Finding and profiling race conditions or database deadlocks.",
+    "salary": 4000,
+    "company": "LoadTest Solutions",
+    "contacts": "t.me/loadtest_qa_hiring",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Site Reliability Engineer (SRE Platform)",
+    "description_of_vacancy": "Maintain cloud runtime infrastructure integrity by developing internal tools and monitoring rules.\nRequirements:\n- Linux internal profiling (systemd, journald, cgroups setups, network limits)\n- Creating alerts and metric exporters using Prometheus, Thanos, Alertmanager\n- Automation scripts engineering using Go or Python code blocks.",
+    "salary": 6500,
+    "company": "Runtime Reliability",
+    "contacts": "sre_hiring@runtimereliability.net",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Python Backend Engineer (ETL Pipeline Tuning)",
+    "description_of_vacancy": "Refactor slow data processing workers into high-velocity batch-processing modules.\nRequirements:\n- Mastery of Python multiprocessing, concurrent.futures, and memory profiles optimization\n- High competence in SQL query executions (Window functions, partial indexing logic)\n- Experience with Celery broker configurations or Redis Queue setups.",
+    "salary": 4800,
+    "company": "DataVelocity Studio",
+    "contacts": "t.me/datavelocity_talent",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Cloud Security Architect",
+    "description_of_vacancy": "Establish rigorous enterprise access policies, threat tracking rules, and perimeter definitions.\nRequirements:\n- Expert-level AWS Security Hub configuration, GuardDuty tracking controls, IAM policies\n- Scripting threat isolation actions via Python scripts triggered by CloudWatch alerts\n- Auditing cloud setups using automated compliance engines.",
+    "salary": 8800,
+    "company": "CloudShield Defense",
+    "contacts": "sec_talent@cloudshield.io",
+    "status_of_role": ["Project", "Remote"]
+  },
+  {
+    "role": "Fullstack Software Developer (Go / SvelteKit)",
+    "description_of_vacancy": "Join a rapid delivery team building performant, responsive internal tools with a lean stack.\nRequirements:\n- Designing fast REST and WebSocket backends in Go using Chi or Fiber routers\n- Building interactive client applications using SvelteKit and state managers\n- Containerization of application blocks using lightweight multi-stage Dockerfiles.",
+    "salary": 5200,
+    "company": "LeanSystems Global",
+    "contacts": "t.me/leansystems_jobs",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Database Administrator (PostgreSQL Scale-Out)",
+    "description_of_vacancy": "Own performance configurations of large-scale distributed relational database cluster instances.\nRequirements:\n- Production experience with Postgres connection proxy management (PgBouncer configurations)\n- Setting up high-availability clusters using Patroni, etcd, and wal-g backup management\n- Finding and refactoring slow transactional bottlenecks.",
+    "salary": 5800,
+    "company": "DBOps Solutions",
+    "contacts": "careers@dbops.tech",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Data Engineer (Spark Streaming / Airflow)",
+    "description_of_vacancy": "Construct pipeline ingestion loops parsing real-time web activities into structured data catalogs.\nRequirements:\n- Advanced PySpark programming patterns, tuning partition settings across cluster arrays\n- Orchestrating complex DAG schedules inside Apache Airflow or Prefect servers\n- Experience writing schemas for data lakes built on AWS S3.",
+    "salary": 6200,
+    "company": "DataLake Ingest",
+    "contacts": "t.me/datalake_ingest_hr",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Python Backend Engineer (Payload Logic Verification)",
+    "description_of_vacancy": "CRITICAL VALIDATION FAULT TEST: This record has a Null Payload Metadata fault. The field 'status_of_role' is intentionally assigned to null. Payload parsing filters or hard-filtering mechanisms inside vector indices like Qdrant must be verified against this exact case to check fallback conditions properly.",
+    "salary": 5000,
+    "company": "Null Payload Enterprises",
+    "contacts": "t.me/validation_fault_null",
+    "status_of_role": null
+  },
+  {
+    "role": "Network Security Developer (eBPF / Go)",
+    "description_of_vacancy": "Write kernel-level system monitoring components and fast packet isolation blocks inside Linux networks.\nRequirements:\n- Writing eBPF programs, working with bpftool and kernel headers mappings\n- User-space controller programming using Go libraries (cilium/ebpf or similar)\n- Solid grasp of Linux networking stack pathways.",
+    "salary": 7500,
+    "company": "KernelNet Labs",
+    "contacts": "hiring@kernelnet.io",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+    {
+      "role": "Python Backend Developer (Async Integrations)",
+      "description_of_vacancy": "Looking for a backend engineer to develop real-time synchronization services and handle stream processing.\nRequirements:\n- 3+ years of commercial Python experience, strong asyncio and typing libraries usage\n- Working with Redis streams or RabbitMQ pub-sub topologies\n- Writing raw SQL performance optimizations and profiling migrations.",
+      "salary": 4900,
+      "company": "LinkCore Systems",
+      "contacts": "t.me/linkcore_backend",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Go Systems Developer (Distributed Ledger)",
+      "description_of_vacancy": "Design and build low-latency node synchronization networks and high-throughput data replication engines.\nRequirements:\n- Proficient in Go (Golang) and low-level concurrency mechanisms\n- Experience with gRPC, Protocol Buffers, and custom multiplexing routers\n- Understanding of Raft consensus or similar state machine replication schemas.",
+      "salary": 8200,
+      "company": "ChainState Labs",
+      "contacts": "careers@chainstate.io",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "DevOps Engineer (Cloud Infrastructure & Security)",
+      "description_of_vacancy": "Secure and scale cloud configurations across multi-region environments via automation tools.\nRequirements:\n- Enterprise experience with AWS (EKS, RDS, KMS, IAM isolation)\n- Writing modular, dry Terraform code, managing state locks securely\n- Hardening container runtimes and implementing network security policies.",
+      "salary": 6100,
+      "company": "SecOps Matrix",
+      "contacts": "t.me/secops_matrix_hr",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Data Architect (Vector Databases & Analytics)",
+      "description_of_vacancy": "Lead the design of hybrid analytical data systems, managing unstructured text indexes and semantic vector retrieval storage.\nRequirements:\n- Setting up and tuning production Qdrant, Milvus, or pgvector installations\n- Experience building semantic chunking strategies for multi-million document pools\n- Expert level in distributed analytical engines (ClickHouse / Snowflake).",
+      "salary": 9500,
+      "company": "VectorIntelligence",
+      "contacts": "architecture@vectorintel.ai",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Frontend Developer (React / Next.js State Optimization)",
+      "description_of_vacancy": "Optimize performance of high-density dashboard layouts handling continuous streaming updates.\nRequirements:\n- Deep React 18 / 19 hooks optimization, minimizing rerenders on real-time tickers\n- State sync strategies with WebSockets via Zustand or custom contexts\n- Advanced layout rendering strategies via Next.js App Router templates.",
+      "salary": 4300,
+      "company": "TickStream UI",
+      "contacts": "t.me/tickstream_ui_jobs",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Python Automation Engineer (AI Agents)",
+      "description_of_vacancy": "Build autonomic workflow execution agents that orchestrate data collection and processing sequences.\nRequirements:\n- Core Python expertise, handling dynamic schemas with Pydantic v2\n- Building complex workflow graphs via LangGraph or custom state controllers\n- Interfacing with local LLM runtimes (Ollama / vLLM execution).",
+      "salary": 5600,
+      "company": "AutoNode Corp",
+      "contacts": "hr@autonode.dev",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "QA Engineer (Backend Automation & Stress Testing)",
+      "description_of_vacancy": "Validate high-throughput API endpoints by creating performance regression and load profiles.\nRequirements:\n- Comprehensive backend API verification loops using Python and PyTest hooks\n- Writing stress-test test descriptions using Locust or Grafana k6 execution blocks\n- Finding and profiling race conditions or database deadlocks.",
+      "salary": 4000,
+      "company": "LoadTest Solutions",
+      "contacts": "t.me/loadtest_qa_hiring",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Site Reliability Engineer (SRE Platform)",
+      "description_of_vacancy": "Maintain cloud runtime infrastructure integrity by developing internal tools and monitoring rules.\nRequirements:\n- Linux internal profiling (systemd, journald, cgroups setups, network limits)\n- Creating alerts and metric exporters using Prometheus, Thanos, Alertmanager\n- Automation scripts engineering using Go or Python code blocks.",
+      "salary": 6500,
+      "company": "Runtime Reliability",
+      "contacts": "sre_hiring@runtimereliability.net",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Python Backend Engineer (ETL Pipeline Tuning)",
+      "description_of_vacancy": "Refactor slow data processing workers into high-velocity batch-processing modules.\nRequirements:\n- Mastery of Python multiprocessing, concurrent.futures, and memory profiles optimization\n- High competence in SQL query executions (Window functions, partial indexing logic)\n- Experience with Celery broker configurations or Redis Queue setups.",
+      "salary": 4800,
+      "company": "DataVelocity Studio",
+      "contacts": "t.me/datavelocity_talent",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Cloud Security Architect",
+      "description_of_vacancy": "Establish rigorous enterprise access policies, threat tracking rules, and perimeter definitions.\nRequirements:\n- Expert-level AWS Security Hub configuration, GuardDuty tracking controls, IAM policies\n- Scripting threat isolation actions via Python scripts triggered by CloudWatch alerts\n- Auditing cloud setups using automated compliance engines.",
+      "salary": 8800,
+      "company": "CloudShield Defense",
+      "contacts": "sec_talent@cloudshield.io",
+      "status_of_role": ["Project", "Remote"]
+    },
+    {
+      "role": "Fullstack Software Developer (Go / SvelteKit)",
+      "description_of_vacancy": "Join a rapid delivery team building performant, responsive internal tools with a lean stack.\nRequirements:\n- Designing fast REST and WebSocket backends in Go using Chi or Fiber routers\n- Building interactive client applications using SvelteKit and state managers\n- Containerization of application blocks using lightweight multi-stage Dockerfiles.",
+      "salary": 5200,
+      "company": "LeanSystems Global",
+      "contacts": "t.me/leansystems_jobs",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Database Administrator (PostgreSQL Scale-Out)",
+      "description_of_vacancy": "Own performance configurations of large-scale distributed relational database cluster instances.\nRequirements:\n- Production experience with Postgres connection proxy management (PgBouncer configurations)\n- Setting up high-availability clusters using Patroni, etcd, and wal-g backup management\n- Finding and refactoring slow transactional bottlenecks.",
+      "salary": 5800,
+      "company": "DBOps Solutions",
+      "contacts": "careers@dbops.tech",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Data Engineer (Spark Streaming / Airflow)",
+      "description_of_vacancy": "Construct pipeline ingestion loops parsing real-time web activities into structured data catalogs.\nRequirements:\n- Advanced PySpark programming patterns, tuning partition settings across cluster arrays\n- Orchestrating complex DAG schedules inside Apache Airflow or Prefect servers\n- Experience writing schemas for data lakes built on AWS S3.",
+      "salary": 6200,
+      "company": "DataLake Ingest",
+      "contacts": "t.me/datalake_ingest_hr",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Python Backend Engineer (Payload Logic Verification)",
+      "description_of_vacancy": "CRITICAL VALIDATION FAULT TEST: This record has a Null Payload Metadata fault. The field 'status_of_role' is intentionally assigned to null. Payload parsing filters or hard-filtering mechanisms inside vector indices like Qdrant must be verified against this exact case to check fallback conditions properly.",
+      "salary": 5000,
+      "company": "Null Payload Enterprises",
+      "contacts": "t.me/validation_fault_null",
+      "status_of_role": null
+    },
+    {
+      "role": "Network Security Developer (eBPF / Go)",
+      "description_of_vacancy": "Write kernel-level system monitoring components and fast packet isolation blocks inside Linux networks.\nRequirements:\n- Writing eBPF programs, working with bpftool and kernel headers mappings\n- User-space controller programming using Go libraries (cilium/ebpf or similar)\n- Solid grasp of Linux networking stack pathways.",
+      "salary": 7500,
+      "company": "KernelNet Labs",
+      "contacts": "hiring@kernelnet.io",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Python Backend Developer (FastAPI / Performance Tuning)",
+      "description_of_vacancy": "We are looking for a Python specialist to join our core backend team and focus on database optimization.\nRequirements:\n- 3+ years of commercial experience with FastAPI and PostgreSQL\n- Profiling SQL executions, setting up advanced indexing, and query optimization\n- Managing concurrency and task queues using Celery or ARQ systems.",
+      "salary": 4800,
+      "company": "QueryFlow Systems",
+      "contacts": "t.me/queryflow_jobs",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Senior Go Infrastructure Engineer",
+      "description_of_vacancy": "Join our platform team to build internal tooling and customize high-speed proxy routers.\nRequirements:\n- 5+ years of software engineering experience, with 3+ years explicitly in Go\n- Strong background in Unix/Linux systems programming and low-level networking\n- Direct experience with Docker, multi-stage builds, and Kubernetes orchestration architectures.",
+      "salary": 7800,
+      "company": "ProxyGrid Labs",
+      "contacts": "infrastructure@proxygrid.io",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "DevOps Architect (AWS Multi-Region Scale)",
+      "description_of_vacancy": "Design high-availability cloud layouts and disaster recovery mechanisms across distributed global regions.\nRequirements:\n- Expert-level AWS provisioning (EKS, CloudFront, Route53, RDS Aurora clusters)\n- Modular, declarative infrastructure as code using OpenTofu or Terraform setups\n- Configuring edge networking patterns and security boundaries.",
+      "salary": 9200,
+      "company": "GlobalCloud Solutions",
+      "contacts": "t.me/globalcloud_talent",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Data Engineer (Pipeline Orchestration & dbt)",
+      "description_of_vacancy": "Build, refactor, and manage multi-stage data processing models for complex analytical reports.\nRequirements:\n- Excellent core Python and advanced analytical SQL skills\n- Setting up transformations using dbt (Data Build Tool) over cloud warehouses\n- Orchestrating pipelines using Dagster, Prefect, or Apache Airflow environments.",
+      "salary": 6100,
+      "company": "DataTransform Media",
+      "contacts": "careers@datatransform.net",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Frontend Specialist (React / Component Architecture)",
+      "description_of_vacancy": "Own the development of our internal modular user-interface system used across customer portals.\nRequirements:\n- Strong knowledge of React, TypeScript, and modern CSS engines (Tailwind / CSS Modules)\n- Developing and document components using Storybook frameworks\n- Optimizing bundle distribution sizes and managing code-splitting methods.",
+      "salary": 4200,
+      "company": "Interface Labs",
+      "contacts": "t.me/interfacelabs_hiring",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "MLOps Architect (Distributed Inference Systems)",
+      "description_of_vacancy": "Scale up production runtime clusters hosting complex fine-tuned large language model frameworks.\nRequirements:\n- Practical knowledge of model deployment engines like vLLM, Triton, or Ollama runtimes\n- Configuring auto-scaling deployment parameters using Kubernetes and KServe setups\n- Integrating model registries and weight storage layers securely via AWS S3.",
+      "salary": 8500,
+      "company": "TensorScale Research",
+      "contacts": "hr@tensorscale.ai",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "QA Automation Engineer (Python Backend E2E)",
+      "description_of_vacancy": "Design clean integration testing modules and automated verification routines for microservice communication layers.\nRequirements:\n- Solid core Python programming patterns and mastery of the PyTest framework ecosystem\n- Verification of raw REST, gRPC, and WebSocket API behaviors\n- Managing containerized test databases and setting up test runners inside CI/CD lines.",
+      "salary": 3800,
+      "company": "VerifyTech Corp",
+      "contacts": "t.me/verifytech_qa",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Site Reliability Specialist (Linux Internals)",
+      "description_of_vacancy": "Troubleshoot and optimize kernel configuration rules, file storage structures, and physical server pools.\nRequirements:\n- Deep Linux administration background (cgroups setups, systemd controls, process sandboxing)\n- Developing system metric tools using Bash or Python automation scripts\n- Managing logs aggregation configurations via Vector or Logstash systems.",
+      "salary": 5900,
+      "company": "CoreRuntime Media",
+      "contacts": "sre_team@coreruntime.org",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Python Backend Engineer (gRPC Microservices)",
+      "description_of_vacancy": "Implement high-velocity data transmission services leveraging protobuf specs and asynchronous loops.\nRequirements:\n- Commercial Python backend development skills using Asyncio engines\n- Practical integration experience with gRPC, generating code from proto definition files\n- Schema design patterns on relational backends like PostgreSQL.",
+      "salary": 5300,
+      "company": "NetStream Solutions",
+      "contacts": "t.me/netstream_backend_jobs",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Application Security Specialist (AppSec Control)",
+      "description_of_vacancy": "Audit repository assets, analyze dependencies, and integrate defensive security scanning layers.\nRequirements:\n- Finding and tracking flaws using SAST/DAST utilities integrated directly into GitHub Actions\n- Solid understanding of the OWASP Top 10 vulnerabilities classification\n- Scripting security validations using simple Python or Bash scripts.",
+      "salary": 6500,
+      "company": "CyberShield Software",
+      "contacts": "sec_recruit@cybershield.tech",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Fullstack Software Developer (Golang / Vue 3)",
+      "description_of_vacancy": "Join a product team to design, build, and deploy lightweight configuration tracking portals.\nRequirements:\n- Constructing fast API structures in Go using modern lightweight routing engines (Chi / Gin)\n- Implementing interactive client views using Vue 3 with Composition API layouts\n- Simple, predictable application deployments inside multi-stage Docker builds.",
+      "salary": 4900,
+      "company": "PredictableStack Inc",
+      "contacts": "t.me/predictablestack_talent",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Database Administrator (High-Availability Postgres)",
+      "description_of_vacancy": "Own the operations, point-in-time recovery configurations, and replica setups for transactional backends.\nRequirements:\n- Expert-level Postgres operational experience (tuning parameters, connection pooling via PgBouncer)\n- Managing dynamic failovers using Patroni structures, etcd control blocks, and wal-g scripts\n- Resolving locks and tuning slow-running migration operations.",
+      "salary": 5700,
+      "company": "DataAnchor Systems",
+      "contacts": "careers@dataanchor.io",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+    {
+      "role": "Data Solutions Engineer (ClickHouse Architectures)",
+      "description_of_vacancy": "Structure high-volume columnar data repositories designed for fast computational aggregations.\nRequirements:\n- Deep practical familiarity with ClickHouse cluster configurations, storage engines, and sorting keys\n- Building streaming input ingestion routines from raw Apache Kafka topic structures\n- Writing and verifying analytical reporting queries.",
+      "salary": 6300,
+      "company": "LogAnalytics Group",
+      "contacts": "t.me/loganalytics_data_jobs",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Python Backend Engineer (Contact Info Ingestion Verification)",
+      "description_of_vacancy": "CRITICAL VALIDATION FAULT TEST: This record features an Empty Contacts fault. The 'contacts' field contains an explicitly empty string literal. Business processing layers or ingestion workflows matching this schema must quarantine this record because it contains no actionable communication endpoint.",
+      "salary": 4500,
+      "company": "Quarantine Logic Labs",
+      "contacts": "",
+      "status_of_role": ["Full-time", "Remote"]
+    },
+    {
+      "role": "Embedded Firmware Developer (Rust Ecosystem)",
+      "description_of_vacancy": "Write clean, panic-free low-level driver components for modern connected sensor system designs.\nRequirements:\n- Bare-metal micro-controller programming using Rust or modern optimized C++ frameworks\n- Working with low-level communication busses (SPI, I2C, UART layouts, direct memory access)\n- Reading hardware diagrams and profiling execution layouts using logic trace units.",
+      "salary": 5500,
+      "company": "SensorNode Tech",
+      "contacts": "hardware_jobs@sensornode.io",
+      "status_of_role": ["Full-time", "Hybrid"]
+    },
+  {
+    "role": "Python Backend Developer (Data Processing Platforms)",
+    "description_of_vacancy": "Looking for a mid-to-senior engineer to optimize back-end scraping components and data aggregation workers.\nRequirements:\n- 3+ years of commercial Python engineering with asyncio modules\n- Interfacing with unstructured databases (MongoDB) and cache servers (Redis)\n- Writing performant data adapters, parsing routines, and cleaning tasks.",
+    "salary": 4700,
+    "company": "DataHarvest Media",
+    "contacts": "t.me/dataharvest_talent",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Senior Go Systems Engineer",
+    "description_of_vacancy": "Build high-velocity synchronization engines handling millions of transactions across distributed network branches.\nRequirements:\n- 5+ years of software design, master level in Go (Golang) and concurrency primitives\n- Performance tuning via runtime profiling scripts (pprof) and trace analysis\n- Working with low-level network routers, gRPC schemas, and custom multiplexing code.",
+    "salary": 8000,
+    "company": "VelocityRouting Systems",
+    "contacts": "careers@velocityrouting.io",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "DevOps Engineer (Cloud Automation & Monitoring)",
+    "description_of_vacancy": "Own cloud delivery setups by creating modern infrastructure scaling definitions and logging dashboards.\nRequirements:\n- Strong production knowledge of AWS environments (EC2, S3, IAM policies, VPC routing)\n- Declarative configuration tracking using Terraform or OpenTofu scripts\n- Setting up monitoring collectors via Prometheus, Alertmanager, and Grafana views.",
+    "salary": 5800,
+    "company": "OpsScale Software",
+    "contacts": "t.me/opsscale_hiring",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Data Engineer (Analytics Pipelines & SQL)",
+    "description_of_vacancy": "Structure robust batch processing architectures aggregating core business telemetry records securely.\nRequirements:\n- Excellent core Python scripting and advanced analytical SQL queries writing\n- Designing scheduling frameworks inside Apache Airflow or Prefect servers\n- Maintaining database schemas over warehouse structures like ClickHouse or Snowflake.",
+    "salary": 6200,
+    "company": "MetricFlow Labs",
+    "contacts": "data_jobs@metricflow.net",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Frontend Developer (React / TypeScript Engineering)",
+    "description_of_vacancy": "Join a team migrating internal configuration utilities into modern, responsive client dashboards.\nRequirements:\n- Proficient in React, TypeScript, and utility-first styling (Tailwind CSS)\n- State management optimizations using Zustand or Redux Toolkit engines\n- Building optimized client builds using Vite configurations.",
+    "salary": 4000,
+    "company": "FrontCanvas Inc",
+    "contacts": "t.me/frontcanvas_recruiting",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "ML Application Specialist (RAG Integration)",
+    "description_of_vacancy": "Implement context-retrieval mechanisms and integrate large language models into internal tools.\nRequirements:\n- Solid Python backend foundations using FastAPI or LiteStar async frames\n- Practical experience with vector index filtering (Qdrant, pgvector, or Milvus)\n- Prompt optimization and context mapping controls using LangChain or LlamaIndex.",
+    "salary": 6000,
+    "company": "ContextAI Labs",
+    "contacts": "hr@contextai.dev",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "QA Automation Engineer (Python Backend Modules)",
+    "description_of_vacancy": "Design and maintain rigorous automated end-to-end regression validation scripts for microservices.\nRequirements:\n- Creating robust backend test suites using Python and PyTest framework extensions\n- Validating REST API endpoints, schemas consistency, and mock integrations\n- Integrating continuous quality check runs inside Gitlab CI pipelines.",
+    "salary": 4200,
+    "company": "TestGrid Global",
+    "contacts": "t.me/testgrid_qa_jobs",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Site Reliability Engineer (Linux Platform Core)",
+    "description_of_vacancy": "Maintain zero-downtime deployment metrics by profiling runtime constraints and configuring perimeter rules.\nRequirements:\n- Deep Linux system administration history (systemd mechanics, networking paths profiling)\n- Automating operational scenarios using core Python or Bash scripts\n- Logging pipeline architecture tracking using Vector or Logstash aggregators.",
+    "salary": 6300,
+    "company": "CoreOps Media",
+    "contacts": "sre_recruiting@coreops.org",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Python API Engineer (Microservices Integration)",
+    "description_of_vacancy": "Develop high-throughput internal routing interfaces and integrate external third-party communication layers.\nRequirements:\n- Experience building async microservices with Python and FastAPI/Starlette frames\n- Designing relational database layers (PostgreSQL) and schema migrations (Alembic)\n- Working with message brokers like RabbitMQ for background worker execution.",
+    "salary": 5000,
+    "company": "NetAdapter Systems",
+    "contacts": "t.me/netadapter_backend",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Application Security Auditor (AppSec Control)",
+    "description_of_vacancy": "Conduct automated vulnerability scanning, secure dependency verification, and repository code reviews.\nRequirements:\n- Setting up static and dynamic security auditing tools (SAST/DAST) in CI/CD chains\n- Practical knowledge of OWASP Top 10 classifications and threat mitigations\n- Automating patch checks via custom Python validation utilities.",
+    "salary": 6700,
+    "company": "DefensiveCode Labs",
+    "contacts": "sec_hiring@defensivecode.tech",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Fullstack Engineer (Go / Vue 3 Dashboards)",
+    "description_of_vacancy": "Build simple, performant infrastructure management panels combining a fast Go backend with reactive views.\nRequirements:\n- Creating web routers in Go using lightweight engines (Chi, Fiber, or Gin)\n- Implementing user interface layouts using Vue 3 with Composition API patterns\n- Docker containerization for predictable multi-stage server deployments.",
+    "salary": 5200,
+    "company": "PanelCraft Solutions",
+    "contacts": "t.me/panelcraft_talent",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Database Administrator (PostgreSQL Replication Tuning)",
+    "description_of_vacancy": "Manage, monitor, and tune high-availability database environments handling intensive transactional loads.\nRequirements:\n- Expert-level Postgres parameters tuning and connection scaling using PgBouncer\n- Setting up multi-node clusters via Patroni and managing continuous backups (wal-g)\n- Debugging slow operations and isolating lock contention issues.",
+    "salary": 5900,
+    "company": "DataAnchor Group",
+    "contacts": "careers@dataanchor.net",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Data Architect (Columnar Warehouses & ClickHouse)",
+    "description_of_vacancy": "Design scalable analytical data store layouts optimized for rapid real-time calculations over massive streams.\nRequirements:\n- In-depth mastery of ClickHouse layouts (sharding configurations, ReplicatedMergeTree engines)\n- Parsing input events directly from high-volume Apache Kafka topic blocks\n- Designing efficient schema mappings for analytical processing metrics.",
+    "salary": 7000,
+    "company": "LogVelocity Labs",
+    "contacts": "t.me/logvelocity_data",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Senior Financial Analyst",
+    "description_of_vacancy": "CRITICAL VALIDATION FAULT TEST: This record contains an Out-of-Domain Role failure. The position 'Senior Financial Analyst' represents a non-IT engineering role. Routing mechanisms or LLM evaluation pipelines matching this data schema must intercept this classification and block ingestion immediately.",
+    "salary": 4500,
+    "company": "FinCapital Group",
+    "contacts": "t.me/fincapital_recruiting",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Embedded Firmware Developer (Rust Hardware Controls)",
+    "description_of_vacancy": "Implement memory-safe, lightweight driver code for proprietary smart-meter telemetry nodes.\nRequirements:\n- Commercial low-level systems programming using bare-metal Rust environments\n- Interfacing physical protocols directly (SPI, I2C patterns, direct memory mapping access)\n- Profiling energy limits and hardware loops using logic trace tools.",
+    "salary": 5600,
+    "company": "TelemetryCore Tech",
+    "contacts": "hardware_jobs@telemetrycore.io",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Python Backend Developer (Data Processing Platforms)",
+    "description_of_vacancy": "Looking for a mid-to-senior engineer to optimize back-end scraping components and data aggregation workers.\nRequirements:\n- 3+ years of commercial Python engineering with asyncio modules\n- Interfacing with unstructured databases (MongoDB) and cache servers (Redis)\n- Writing performant data adapters, parsing routines, and cleaning tasks.",
+    "salary": 4700,
+    "company": "DataHarvest Media",
+    "contacts": "t.me/dataharvest_talent",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Senior Go Systems Engineer",
+    "description_of_vacancy": "Build high-velocity synchronization engines handling millions of transactions across distributed network branches.\nRequirements:\n- 5+ years of software design, master level in Go (Golang) and concurrency primitives\n- Performance tuning via runtime profiling scripts (pprof) and trace analysis\n- Working with low-level network routers, gRPC schemas, and custom multiplexing code.",
+    "salary": 8000,
+    "company": "VelocityRouting Systems",
+    "contacts": "careers@velocityrouting.io",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "DevOps Engineer (Cloud Automation & Monitoring)",
+    "description_of_vacancy": "Own cloud delivery setups by creating modern infrastructure scaling definitions and logging dashboards.\nRequirements:\n- Strong production knowledge of AWS environments (EC2, S3, IAM policies, VPC routing)\n- Declarative configuration tracking using Terraform or OpenTofu scripts\n- Setting up monitoring collectors via Prometheus, Alertmanager, and Grafana views.",
+    "salary": 5800,
+    "company": "OpsScale Software",
+    "contacts": "t.me/opsscale_hiring",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Data Engineer (Analytics Pipelines & SQL)",
+    "description_of_vacancy": "Structure robust batch processing architectures aggregating core business telemetry records securely.\nRequirements:\n- Excellent core Python scripting and advanced analytical SQL queries writing\n- Designing scheduling frameworks inside Apache Airflow or Prefect servers\n- Maintaining database schemas over warehouse structures like ClickHouse or Snowflake.",
+    "salary": 6200,
+    "company": "MetricFlow Labs",
+    "contacts": "data_jobs@metricflow.net",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Frontend Developer (React / TypeScript Engineering)",
+    "description_of_vacancy": "Join a team migrating internal configuration utilities into modern, responsive client dashboards.\nRequirements:\n- Proficient in React, TypeScript, and utility-first styling (Tailwind CSS)\n- State management optimizations using Zustand or Redux Toolkit engines\n- Building optimized client builds using Vite configurations.",
+    "salary": 4000,
+    "company": "FrontCanvas Inc",
+    "contacts": "t.me/frontcanvas_recruiting",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "ML Application Specialist (RAG Integration)",
+    "description_of_vacancy": "Implement context-retrieval mechanisms and integrate large language models into internal tools.\nRequirements:\n- Solid Python backend foundations using FastAPI or LiteStar async frames\n- Practical experience with vector index filtering (Qdrant, pgvector, or Milvus)\n- Prompt optimization and context mapping controls using LangChain or LlamaIndex.",
+    "salary": 6000,
+    "company": "ContextAI Labs",
+    "contacts": "hr@contextai.dev",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "QA Automation Engineer (Python Backend Modules)",
+    "description_of_vacancy": "Design and maintain rigorous automated end-to-end regression validation scripts for microservices.\nRequirements:\n- Creating robust backend test suites using Python and PyTest framework extensions\n- Validating REST API endpoints, schemas consistency, and mock integrations\n- Integrating continuous quality check runs inside Gitlab CI pipelines.",
+    "salary": 4200,
+    "company": "TestGrid Global",
+    "contacts": "t.me/testgrid_qa_jobs",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Site Reliability Engineer (Linux Platform Core)",
+    "description_of_vacancy": "Maintain zero-downtime deployment metrics by profiling runtime constraints and configuring perimeter rules.\nRequirements:\n- Deep Linux system administration history (systemd mechanics, networking paths profiling)\n- Automating operational scenarios using core Python or Bash scripts\n- Logging pipeline architecture tracking using Vector or Logstash aggregators.",
+    "salary": 6300,
+    "company": "CoreOps Media",
+    "contacts": "sre_recruiting@coreops.org",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Python API Engineer (Microservices Integration)",
+    "description_of_vacancy": "Develop high-throughput internal routing interfaces and integrate external third-party communication layers.\nRequirements:\n- Experience building async microservices with Python and FastAPI/Starlette frames\n- Designing relational database layers (PostgreSQL) and schema migrations (Alembic)\n- Working with message brokers like RabbitMQ for background worker execution.",
+    "salary": 5000,
+    "company": "NetAdapter Systems",
+    "contacts": "t.me/netadapter_backend",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Application Security Auditor (AppSec Control)",
+    "description_of_vacancy": "Conduct automated vulnerability scanning, secure dependency verification, and repository code reviews.\nRequirements:\n- Setting up static and dynamic security auditing tools (SAST/DAST) in CI/CD chains\n- Practical knowledge of OWASP Top 10 classifications and threat mitigations\n- Automating patch checks via custom Python validation utilities.",
+    "salary": 6700,
+    "company": "DefensiveCode Labs",
+    "contacts": "sec_hiring@defensivecode.tech",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Fullstack Engineer (Go / Vue 3 Dashboards)",
+    "description_of_vacancy": "Build simple, performant infrastructure management panels combining a fast Go backend with reactive views.\nRequirements:\n- Creating web routers in Go using lightweight engines (Chi, Fiber, or Gin)\n- Implementing user interface layouts using Vue 3 with Composition API patterns\n- Docker containerization for predictable multi-stage server deployments.",
+    "salary": 5200,
+    "company": "PanelCraft Solutions",
+    "contacts": "t.me/panelcraft_talent",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Database Administrator (PostgreSQL Replication Tuning)",
+    "description_of_vacancy": "Manage, monitor, and tune high-availability database environments handling intensive transactional loads.\nRequirements:\n- Expert-level Postgres parameters tuning and connection scaling using PgBouncer\n- Setting up multi-node clusters via Patroni and managing continuous backups (wal-g)\n- Debugging slow operations and isolating lock contention issues.",
+    "salary": 5900,
+    "company": "DataAnchor Group",
+    "contacts": "careers@dataanchor.net",
+    "status_of_role": ["Full-time", "Hybrid"]
+  },
+  {
+    "role": "Data Architect (Columnar Warehouses & ClickHouse)",
+    "description_of_vacancy": "Design scalable analytical data store layouts optimized for rapid real-time calculations over massive streams.\nRequirements:\n- In-depth mastery of ClickHouse layouts (sharding configurations, ReplicatedMergeTree engines)\n- Parsing input events directly from high-volume Apache Kafka topic blocks\n- Designing efficient schema mappings for analytical processing metrics.",
+    "salary": 7000,
+    "company": "LogVelocity Labs",
+    "contacts": "t.me/logvelocity_data",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Senior Financial Analyst",
+    "description_of_vacancy": "CRITICAL VALIDATION FAULT TEST: This record contains an Out-of-Domain Role failure. The position 'Senior Financial Analyst' represents a non-IT engineering role. Routing mechanisms or LLM evaluation pipelines matching this data schema must intercept this classification and block ingestion immediately.",
+    "salary": 4500,
+    "company": "FinCapital Group",
+    "contacts": "t.me/fincapital_recruiting",
+    "status_of_role": ["Full-time", "Remote"]
+  },
+  {
+    "role": "Embedded Firmware Developer (Rust Hardware Controls)",
+    "description_of_vacancy": "Implement memory-safe, lightweight driver code for proprietary smart-meter telemetry nodes.\nRequirements:\n- Commercial low-level systems programming using bare-metal Rust environments\n- Interfacing physical protocols directly (SPI, I2C patterns, direct memory mapping access)\n- Profiling energy limits and hardware loops using logic trace tools.",
+    "salary": 5600,
+    "company": "TelemetryCore Tech",
+    "contacts": "hardware_jobs@telemetrycore.io",
+    "status_of_role": ["Full-time", "Hybrid"]
+  }
+]

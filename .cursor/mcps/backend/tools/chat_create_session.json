@@ -1,0 +1,14 @@
+{
+  "name": "chat_create_session",
+  "description": "Create a new chat session. Returns a session ID (UUID) used in all subsequent chat and CV endpoints. Optionally attach pre-extracted CV text at creation time. Sessions persist in PostgreSQL across restarts.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "cv_text": {
+        "type": "string",
+        "description": "Optional plain text extracted from the user's CV to attach immediately to the session. Can also be attached later via the CV upload endpoint."
+      }
+    },
+    "required": []
+  }
+}

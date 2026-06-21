@@ -1,0 +1,27 @@
+[
+  {
+    "question": "What remote Python backend developer positions are available with salary above 4000?",
+    "reference": "Several remote Python backend positions are available with salaries above 4000, including roles at ByteCraft Solutions (FastAPI/gRPC, salary 4500), DataMesh Technologies (Distributed Systems, salary 5100), QueryFlow Systems (FastAPI/Performance Tuning, salary 4800), and SyncHub Media (Data Integration, salary 4700).",
+    "expected_keywords": ["remote", "Python", "FastAPI", "salary"]
+  },
+  {
+    "question": "Are there any full-time DevOps or infrastructure engineer positions?",
+    "reference": "There are full-time DevOps and infrastructure engineer positions available, including roles focused on Kubernetes, CI/CD pipelines, Terraform, and cloud infrastructure management.",
+    "expected_keywords": ["DevOps", "Kubernetes", "full-time", "infrastructure"]
+  },
+  {
+    "question": "What machine learning or data science positions are available?",
+    "reference": "There are machine learning and data science positions available, including roles in ML engineering, model deployment, and data analysis with skills in Python, PyTorch, TensorFlow, and MLOps.",
+    "expected_keywords": ["machine learning", "data science", "Python", "model"]
+  },
+  {
+    "question": "Show me frontend developer positions requiring React and TypeScript.",
+    "reference": "Frontend developer positions requiring React and TypeScript are available, typically for companies building web applications, with requirements for modern frontend tooling.",
+    "expected_keywords": ["frontend", "React", "TypeScript"]
+  },
+  {
+    "question": "What part-time or project-based positions are available for a Java developer?",
+    "reference": "There are part-time and project-based positions for Java developers, covering backend services, Spring Boot, and enterprise application development.",
+    "expected_keywords": ["Java", "part-time", "project"]
+  }
+]

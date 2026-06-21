@@ -1,0 +1,14 @@
+{
+  "name": "chat_get_history",
+  "description": "Retrieve the complete message history for an existing chat session, ordered by creation time. Returns all user and assistant messages. Returns an empty list if the session has no messages yet.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "session_id": {
+        "type": "string",
+        "description": "UUID of the target chat session."
+      }
+    },
+    "required": ["session_id"]
+  }
+}

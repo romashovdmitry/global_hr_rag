@@ -1,0 +1,115 @@
+---
+description: Global project context, high-level architecture, tech stack, User Journey, and Core RAG Pipeline flow
+alwaysApply: true
+---
+
+# Project Description: IT-Market Vacancy RAG System
+
+Our project is a RAG (Retrieval-Augmented Generation) system designed for analyzing and communicating about IT-market vacancies. The user can upload their CV in PDF format, and the backend stores a curated dataset of job vacancies. The system utilizes the user's CV as primary context to handle queries.
+
+*Example query:* "What vacancies match my experience on the IT market?" The RAG system evaluates the CV and returns the most relevant jobs.
+
+## Global Project Structure
+The project is explicitly split into the following layout at the root level:
+- `app/backend/` : Contains all FastAPI, Qdrant, and LangGraph RAG ingestion/generation logic.
+- `app/frontend/` : Contains the user interface (web chat application).
+- `ci_cd/` : Contains separated Dockerfiles for every core entity.
+- `docker-compose.local.yml` : Positioned at the project root to orchestrate and run the entire ecosystem.
+
+## Out of Scope (Do Not Waste Time On)
+- **User Authentication:** No login, tokens, or registration forms are needed for this phase.
+- **Complex Aesthetic Interface:** Keep the UI clean, text-dense, and functional; eliminate unnecessary visual noise or decorative design.
+
+---
+
+# Tech Stack
+
+### Frontend
+- Any modern frontend framework is preferred (React or Vue.js). Keep it functional and lightweight.
+
+### Backend
+- **FastAPI:** Core web framework.
+- **LangGraph:** Orchestration engine for retrieval, quality control, and generation nodes.
+- **Qdrant:** Vector database for hybrid search and payload filtering.
+- **Ollama:** Local LLM inference server (no external API key required). Default model: `llama3.2`.
+- **fastembed:** Local dense and sparse embedding generation (no external API key required).
+
+### Infrastructure & Package Management
+- Docker & Docker Compose (`docker-compose.local.yml`).
+- `pip` for package management via `requirements.txt` inside respective service containers.
+
+### Communication Protocols
+The frontend presents a standard real-time chat interface. 
+- **POST Request:** To send a new message.
+- **GET Request:** To retrieve the entire chat history for a session.
+- **WebSockets:** To stream RAG-generated responses to the frontend as they are being computed.
+
+---
+
+# User Flow / User Journey
+
+1. **Initialization:** User opens the web interface.
+2. **CV Upload:** User sees a static button to upload their PDF CV. Alternatively, they have the explicit ability to start a dialog without uploading any CV.
+3. **Processing:** Once a CV is uploaded, the RAG system extracts text and adds it to the session context. A placeholder is shown while PDF processing completes.
+4. **Active Dialog:** User chats with the RAG system. The chat interface displays complete dialog history and a processing state indicator while waiting for replies.
+5. **Session Management:** Static UI buttons must support clearing history (wiping the current dialog context to start fresh) or attaching a new CV at any point.
+
+---
+
+# RAG's Development Flow
+
+Our customized RAG architecture must enforce the following multi-stage flow within LangGraph:
+
+### 1. Ingestion & Indexing (Qdrant)
+- **Document Chunking:** Store full vacancy texts as single documents in Qdrant (**NO character-based or token-based chunking**).
+- **Hybrid In-DB Indexing:** For every vacancy, generate both **Dense Vectors** (semantic meaning via fastembed `BAAI/bge-small-en-v1.5`, 384 dims, runs locally) and **Sparse Vectors** (exact keyword matching weights via BM25 inside Qdrant using fastembed `Qdrant/bm25`).
+- **Payload Indexing:** Create explicit payload indexes for metadata fields: `status_of_role` and `salary` to enable rapid, deterministic hard filtering.
+
+### 2. Advanced Retrieval (Query Translation & Hybrid Search)
+- **Step 2.1: Metadata Extraction (Routing):** An LLM node parses the incoming user query/CV to extract hard values for metadata filters (e.g., mapping "remote work" to `status_of_role` containing `"Remote"`).
+- **Step 2.2: Query Translation (Multi-Query):** Use a lightweight LLM node to transform the user's base request into 3 diversified search queries targeting distinct tech-stack parameters.
+- **Step 2.3: Hybrid Execution:** Execute simultaneous Dense + Sparse search inside Qdrant for all generated queries while forcing the payload metadata filters. Merge resulting item scores using the **RRF (Reciprocal Rank Fusion)** algorithm.
+
+### 3. Quality Control & Evaluation (The RAG Triad Node)
+Implement automated validation chains via LangGraph nodes before passing data to the generation phase:
+- **Context Relevance Grader:** An LLM node verifies if the retrieved Qdrant vacancies actually match the candidate's technical core stack. Drop low-scoring matches.
+- **Groundedness Grader (Anti-Hallucination):** A post-generation node evaluates if the final answer strictly relies *only* on the verified vacancy data. Discard and re-route the response if the model hallucinates unstated attributes (e.g., fake salaries or benefits).
+
+### 4. Generation & Interaction Loop
+- Generate a structured matching report explaining *why* these top validated vacancies correlate with the user's profile.
+- Support "Human-in-the-loop" interaction: user textual adjustments (e.g., "Exclude part-time roles") dynamically update the LangGraph session state and route execution back to Step 2.1.
+
+---
+
+# Architectural Decisions & Lessons Learned
+
+These are concrete decisions made during development that significantly impacted quality and maintainability.
+
+## Intent Classification Before Retrieval
+**Problem:** Generic prompts led to irrelevant responses (e.g., suggesting QA roles when user asked to switch careers).
+**Solution:** Add an `intent_classifier` node as the **first** step of the pipeline. Classify into 7 intents (`find_matching`, `role_transition`, `compare`, `clarify_vacancy`, `followup`, `aggregate`, `off_topic`) and route ALL downstream nodes (query translator, relevance grader, generator) through intent-specific system prompts.
+**Rule:** Every new behaviour change should be a new intent or a prompt in `_SYSTEM_BY_INTENT`, NOT an `if` statement inside an existing node.
+
+## Off-Topic Early Exit
+**Problem:** The model processed non-job queries through the full pipeline, producing nonsense.
+**Solution:** `off_topic` intent short-circuits to `off_topic_responder_node` (returns a canned refusal) before any Qdrant search or LLM generation. Never make the refusal LLM-generated — it must be deterministic.
+
+## Single-User Singleton Session
+**Problem:** Session management (creation, lookup, localStorage sync) was a source of bugs and added complexity with no benefit for a single-user app.
+**Solution:** Use a fixed `CONVERSATION_ID = "00000000-0000-0000-0000-000000000001"` in `config.py`. Create it on startup. All API endpoints address it internally without exposing session IDs to the frontend.
+
+## Background Task Decoupling for WebSocket
+**Problem:** If a user refreshed the page while the RAG pipeline was running, the WebSocket closed and the answer was lost.
+**Solution:** Start the pipeline in a detached `asyncio.create_task` (see `chat/background.py`) with its own DB session. The `ConvTask` buffers all events. Reconnecting clients replay buffered events and then stream new ones. Task state is kept for 30 seconds after completion.
+
+## Rolling Summarization for Long History
+**Problem:** Passing 100+ messages into the LLM context exceeds token limits and slows responses.
+**Solution:** `utils/summarization.py` compresses old messages into `session.summary` when `len(unsummarized) > SUMMARIZE_TRIGGER` (20). `KEEP_RECENT = 10` most recent messages are always passed as-is to preserve immediate context. Full message log stays in the DB.
+
+## Split-Model Optimisation
+**Problem:** 6 sequential LLM calls on a 3B model caused 1–5 minute response times.
+**Solution:** Use two Ollama models: `llama3.2` (3B) for nodes requiring deep reasoning or guardrail-critical extraction (intent_classifier, metadata_extractor, relevance_grader, generator, groundedness_grader) and `llama3.2:1b` (1B) for lightweight query diversification (query_translator). `metadata_extractor` intentionally uses the heavier model because hallucinated hard filters can silently empty Qdrant results. Access models via `get_llm()` / `get_light_llm()` factories.
+
+## Per-Query Metrics Collection
+**Problem:** No visibility into pipeline performance — latency, quality signals, fallback rates.
+**Solution:** `@timed_node("name")` decorator wraps every node. After each pipeline run, `chat/service.py` saves one `QueryStat` row with per-node timing, intent, retrieved/graded counts, groundedness, and token counts. Stats are exposed at `/api/v1/stats/` and visualised at `http://localhost:5173/stats`.

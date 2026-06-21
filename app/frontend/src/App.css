@@ -1,0 +1,273 @@
+/* ── Reset & base ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #0f1117;
+  --surface:    #1a1d27;
+  --border:     #2a2d3a;
+  --text:       #e2e8f0;
+  --text-muted: #8892a4;
+  --accent:     #6366f1;
+  --accent-dim: #4f52c8;
+  --green:      #22c55e;
+  --red:        #ef4444;
+  --radius:     8px;
+  --font:       "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── Layout ───────────────────────────────────────────────── */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.app-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: var(--text-muted);
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.app__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.app__title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: var(--text);
+}
+
+.app__nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  padding-left: 8px;
+}
+
+.app__nav-link {
+  padding: 5px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.app__nav-link:hover {
+  background: var(--border);
+  color: var(--text);
+}
+
+.app__nav-link--active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.app__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Main ─────────────────────────────────────────────────── */
+.app__main {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__main--scrollable {
+  overflow-y: auto;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn {
+  padding: 6px 14px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s, opacity 0.15s;
+}
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.btn--primary  { background: var(--accent); color: #fff; }
+.btn--primary:not(:disabled):hover { background: var(--accent-dim); }
+
+.btn--secondary { background: var(--border); color: var(--text); }
+.btn--secondary:not(:disabled):hover { background: #35394d; }
+
+.btn--ghost { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+.btn--ghost:hover { background: var(--border); color: var(--text); }
+
+/* ── Badge ────────────────────────────────────────────────── */
+.badge { padding: 3px 8px; border-radius: 99px; font-size: 11px; font-weight: 600; }
+.badge--green { background: rgba(34, 197, 94, .15); color: var(--green); }
+
+/* ── CV Upload ────────────────────────────────────────────── */
+.cv-upload { display: flex; align-items: center; gap: 8px; }
+.cv-upload__status { font-size: 12px; color: var(--text-muted); }
+
+/* ── Chat ─────────────────────────────────────────────────── */
+.chat {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.chat__status-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.chat__dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.chat__dot--online  { background: var(--green); }
+.chat__dot--offline { background: var(--red); }
+
+.chat__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chat__empty {
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 60px;
+}
+
+.chat__thinking {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-style: italic;
+}
+
+.chat__thinking--error {
+  color: #e57373;
+  font-style: normal;
+}
+
+.chat__spinner {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.chat__input-row {
+  display: flex;
+  gap: 10px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.chat__textarea {
+  flex: 1;
+  resize: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 8px 12px;
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.chat__textarea:focus { outline: none; border-color: var(--accent); }
+.chat__textarea::placeholder { color: var(--text-muted); }
+
+/* ── Messages ─────────────────────────────────────────────── */
+.message { display: flex; flex-direction: column; gap: 4px; max-width: 85%; }
+.message--user    { align-self: flex-end; }
+.message--assistant { align-self: flex-start; }
+
+.message__label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-muted);
+}
+
+.message__content {
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.message--user .message__content {
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius) var(--radius) 2px var(--radius);
+}
+
+.message__unanswered {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #f59e0b;
+  margin-top: 4px;
+  align-self: flex-end;
+}
+
+.message__unanswered-icon {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.message--assistant .message__content {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius) var(--radius) var(--radius) 2px;
+}

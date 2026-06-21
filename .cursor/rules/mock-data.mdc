@@ -1,0 +1,40 @@
+---
+description: Reference for the pre-built mock vacancy dataset and its validation fault cases used in ingestion and pipeline tests
+globs:
+  - "vacancies.json"
+  - "app/backend/tests/**/test_*.py"
+  - "**/mock_*.py"
+alwaysApply: false
+---
+
+# Mock Vacancy Dataset
+
+The project ships with a pre-built dataset at **`vacancies.json`** (project root). Do not generate new mock vacancies — load this file directly in ingestion scripts and tests.
+
+## Vacancy Schema
+
+Every record complies with the following fields:
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `role` | string | IT/engineering roles only |
+| `description_of_vacancy` | string | Full text: stack, requirements, responsibilities |
+| `salary` | integer \| null | Monthly rate in USD/EUR; `null` if unspecified |
+| `company` | string | Hiring company name |
+| `contacts` | string | Email, Telegram handle, or other contact endpoint |
+| `status_of_role` | list[string] | Subset of: `"Full-time"`, `"Part-time"`, `"Project"`, `"Remote"`, `"Hybrid"` |
+
+## Embedded Validation Fault Cases
+
+The dataset intentionally includes records that simulate critical error states to stress-test validation, routing, and embedding pipelines. These records are distributed throughout the file:
+
+| # | Fault Type | What is broken |
+|---|-----------|----------------|
+| 1 | **Out-of-Domain Role** | `role` is a non-engineering position (e.g., marketing) |
+| 2 | **Missing Mandatory Key** | `role` field is absent entirely |
+| 3 | **Type Mismatch** | `status_of_role` is a plain string instead of a list |
+| 4 | **Empty Description** | `description_of_vacancy` is `""` |
+| 5 | **Null Payload Metadata** | `status_of_role` is `null` |
+| 6 | **Empty Contacts** | `contacts` is `""` |
+
+When writing ingestion or validation tests, cover all 6 fault types using records already present in `vacancies.json` — do not create separate fixture files for these cases.

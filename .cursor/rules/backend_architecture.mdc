@@ -1,0 +1,57 @@
+---
+description: Constraints for Feature-Based Project Structure and FastAPI/Qdrant layer isolation in Backend
+globs: "app/backend/**/*"
+alwaysApply: false
+---
+
+# Feature-Based Project Structure (FastAPI)
+
+We use a feature-based structure to slice components of code. Use the following file structure for application features:
+
+- `app/backend/`
+  - `[feature_name]/` : A self-contained module for a specific business entity (e.g., users, vacancies, matches).
+    - `router.py` : API endpoint definitions and route-specific dependencies for this feature.
+    - `schemas.py` : Pydantic models for request validation and response serialization (DTOs).
+    - `models.py` : Database models (SQLAlchemy/SQLModel) specific to the feature.
+    - `service.py` : Business logic layer handling orchestration and complex operations.
+    - `repository.py` : Data access layer for CRUD operations related to this feature.
+    - `dependencies.py` : Feature-specific FastAPI dependencies (e.g., get_current_user).
+  - `ml/` : Separate folder inside the `app/backend/` directory for ML/RAG components. Keep business logic and ML components strictly isolated.
+    - `nodes/` : One file per LangGraph node. Each node is a pure async function decorated with `@timed_node`.
+    - `graph.py` : Assembles the LangGraph DAG from nodes. No business logic here.
+    - `state.py` : `RAGState` TypedDict — the single mutable state object threaded through all nodes.
+    - `interfaces.py` : `Protocol` types (e.g. `AsyncChatModel`) used for DIP-compliant node signatures.
+    - `timing.py` : `@timed_node(name)` decorator — records per-node wall-clock time into `state["node_timings"]`.
+  - `stats/` : Query-level pipeline metrics. Written after every completed RAG run.
+    - `models.py` : `QueryStat` SQLAlchemy model.
+    - `repository.py` : Save and aggregate stats rows.
+    - `router.py` : `GET /stats/` (aggregates), `GET /stats/recent`, `DELETE /stats/`.
+  - `core/` : Global configuration, security settings, and shared application constants.
+    - `config.py` : `Settings` (pydantic-settings), `CONVERSATION_ID`, `get_llm()`, `get_light_llm()` factories.
+  - `db/` : Global database setup, session management, and Alembic migrations.
+  - `utils/` : Shared helper functions and generic utilities used across multiple features.
+    - `summarization.py` : Rolling summarization — compresses old messages when `SUMMARIZE_TRIGGER` is exceeded.
+    - `pdf.py` : PDF text extraction via `pypdf`.
+    - `qdrant.py` : Qdrant client factory, embedding helpers, collection bootstrap.
+    - `rrf.py` : Reciprocal Rank Fusion algorithm.
+  - `chat/background.py` : In-process background task manager. Decouples the RAG pipeline from WebSocket lifetime so results survive page refreshes.
+  - `main.py` : Entry point that initializes the FastAPI app and includes all feature routers.
+
+### Key Architectural Patterns
+
+#### Singleton Conversation (Single-User Mode)
+The app operates for a single user. There are no sessions — one fixed `CONVERSATION_ID` is used for all DB reads/writes. Created in `lifespan` on startup if it does not exist.
+
+#### Background Task Reconnection Pattern
+`chat/background.py` runs the RAG pipeline as a detached `asyncio.create_task` with its own DB session. A `ConvTask` object buffers all streamed events in memory for 30 seconds. When a client reconnects (page refresh mid-generation), the WebSocket handler replays already-buffered events and then streams new ones. The task survives client disconnects.
+
+#### Rolling Summarization
+When `len(unsummarized_messages) > SUMMARIZE_TRIGGER` (default 20), `utils/summarization.py` compresses `messages[summarized_through : total - KEEP_RECENT]` into `session.summary` via an LLM call. The prompt context at runtime is: `[summary] + messages[summarized_through:]`. Full message log remains in the DB.
+
+### Database Models Note:
+Every SQL model should be in a separate file organized like this:
+- `app/backend/[feature_name]/models/`
+  - `__init__.py`
+  - `[model_name].py`
+
+*Note: For the vector database (Qdrant), we store documents directly as payloads with embeddings. Do not generate relational models layer for Qdrant entities.*

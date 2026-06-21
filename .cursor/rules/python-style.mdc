@@ -1,0 +1,102 @@
+---
+description: Code style standards, architectural principles, and constraints for writing Python and FastAPI code
+globs: "app/backend/**/*"
+alwaysApply: false
+---
+
+# Python Code Style & Architectural Standards
+
+Every Python file, service, router, and utility inside the backend must strictly comply with the following development principles.
+
+## Environment & Dependency Constraints
+- **Runtime:** Python 3.11+
+- **Core Libraries:** FastAPI framework, Pydantic v2 validation layers.
+- **Dependency Management:** Use `pip` managed strictly via `requirements.txt`.
+- **Version Strategy:** Prioritize the latest stable versions of all third-party packages, unless explicit library incompatibility is detected. If a well-maintained, ready-made library exists for a task (e.g., authentication, PDF processing), leverage it instead of writing custom code.
+
+## Architecture & Code Cleanliness
+- **Configuration:** All global constants, environment variables, and system-wide settings must be centralized in a single location (`app/backend/core/config.py`).
+- **Anti-Wrapper Constraint:** Avoid writing redundant intermediate layers or wrapper functions that merely delegate calls to other functions. Eliminate unnecessary abstraction layers and keep the call stack as direct as possible. Write the minimum required code to solve the task.
+- **Object-Oriented Design:** Adhere strictly to SOLID, DRY, and KISS principles. **Prefer composition over inheritance** unless strict hierarchical inheritance is explicitly required by framework constraints (e.g., SQLAlchemy models or Pydantic base schemas).
+
+## SOLID Principles in Practice
+
+### S — Single Responsibility
+Each module has one owner: `router.py` handles HTTP, `service.py` orchestrates business logic, `repository.py` touches the DB, `nodes/` implement pipeline steps. Do not mix concerns.
+
+### O — Open/Closed
+Add behaviour by adding new nodes or intent prompts, not by modifying existing ones. New intents go into `_SYSTEM_BY_INTENT` dicts; new pipeline branches are new LangGraph edges.
+
+### L — Liskov Substitution (LSP)
+Satisfied by design — minimal inheritance hierarchies. Rules when extending:
+- Subclasses must not narrow return types or raise new exceptions not declared by the parent.
+- Any concrete `AbstractLLMService` subclass must be passable wherever `AbstractLLMService` is expected — the pipeline must work without modification (see DIP below).
+- SQLAlchemy model subclasses (`Session(Base)`, `QueryStat(Base)`) only add columns; they never override ORM hooks.
+
+### I — Interface Segregation
+Keep dependency surfaces minimal. A repository function that only reads should accept `AsyncSession`, not a broad "database object". Use narrow ABCs — split a large abstract class into smaller ones if callers only need part of the interface.
+
+### D — Dependency Inversion (DIP)
+**High-level modules (pipeline nodes) must depend on abstractions, not on concrete LLM classes.**
+
+**Pattern used in this project — `ml/llm_service.py`:**
+
+```python
+# Abstract base class — the abstraction all nodes depend on
+class AbstractLLMService(ABC):
+    @abstractmethod
+    def get_llm(self, **kwargs) -> Any: ...
+
+    @abstractmethod
+    def get_light_llm(self, **kwargs) -> Any: ...
+
+# Concrete detail — encapsulates ChatOllama; hidden from all nodes
+class OllamaLLMService(AbstractLLMService):
+    def get_llm(self, **kwargs):
+        from langchain_ollama import ChatOllama
+        return ChatOllama(model=self._llm_model, ...)
+
+    def get_light_llm(self, **kwargs):
+        from langchain_ollama import ChatOllama
+        return ChatOllama(model=self._light_llm_model, ...)
+```
+
+**In nodes — depend only on the abstract service:**
+```python
+from backend.ml.llm_service import get_llm_service
+
+llm = get_llm_service().get_llm()
+llm = get_llm_service().get_llm(temperature=0).with_structured_output(Schema)
+llm = get_llm_service().get_light_llm().with_structured_output(Schema)
+```
+
+**To swap the LLM (e.g. for tests or migration to a new provider):**
+```python
+from backend.ml.llm_service import set_llm_service
+
+set_llm_service(MyNewLLMService())  # all nodes pick it up — zero code changes
+```
+
+**Rules:**
+- Never instantiate `ChatOllama` (or any other concrete LLM class) directly inside a node. Always go through `get_llm_service()`.
+- To add a new LLM provider (e.g. `ChatOpenAI`), create a new `AbstractLLMService` subclass and call `set_llm_service()` — no node files change.
+- Use `abc.ABC` + `@abstractmethod` for service-level abstractions where runtime swapping is needed. Reserve `typing.Protocol` for structural type hints only.
+
+## Code Style & Documentation
+
+### PEP8 Rules (strictly enforced)
+- **Line length:** Maximum **88 characters** per line (Black formatter standard). Break long strings, function signatures, and chained calls across lines.
+- **Imports:** All imports at the **top of the file**, never inside functions, methods, or class bodies. Order: standard library → third-party → local (`backend.*`), separated by a blank line each. The only permitted exceptions are: avoiding a genuine circular import (document the reason with a comment) or conditional imports inside `if TYPE_CHECKING:` blocks for type hints only.
+- **Blank lines:** Two blank lines between top-level definitions (functions, classes). One blank line between methods inside a class.
+- **Trailing whitespace:** No trailing spaces on any line.
+- **String quotes:** Use double quotes `"..."` consistently; single quotes only inside f-strings when nesting is unavoidable.
+- **Naming:** `snake_case` for functions/variables/modules, `PascalCase` for classes, `UPPER_SNAKE_CASE` for constants.
+- **Unused imports:** Remove all unused imports immediately.
+- **Long HTTP detail strings:** Extract multi-line string literals into named constants rather than inlining in function bodies.
+- **No decorative separators:** Do not use lines of dashes, equals signs, or other repeated characters as visual section dividers (e.g. `# ---...---`, `# ===...===`). Use a single blank line or a short descriptive comment instead. These add visual noise without semantic value and are not part of PEP8.
+
+### Type Safety
+Enforce explicit type hints everywhere (variables, function arguments, and return types). Prefer explicit definitions over implicit assumptions.
+
+### Documentation
+All modules, classes, functions, and methods must include detailed docstrings following the **Google Style Guide** specification.

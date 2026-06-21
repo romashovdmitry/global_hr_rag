@@ -1,0 +1,18 @@
+{
+  "name": "chat_send_message",
+  "description": "Send a user message to an existing session and receive the full assistant reply synchronously (non-streaming fallback). Internally runs the full LangGraph RAG pipeline: metadata extraction → multi-query translation → hybrid Qdrant search (dense + sparse + RRF) → relevance grading → generation → groundedness check. Persists both the user message and the assistant reply to PostgreSQL. Prefer the WebSocket endpoint for real-time streaming in production UI.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "session_id": {
+        "type": "string",
+        "description": "UUID of the target session."
+      },
+      "content": {
+        "type": "string",
+        "description": "User message text, e.g. 'What Python backend roles match my experience?'"
+      }
+    },
+    "required": ["session_id", "content"]
+  }
+}

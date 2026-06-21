@@ -1,0 +1,14 @@
+---
+description: Operational file structure rules for CI/CD and Docker entities
+globs: "ci_cd/**/*, **/Dockerfile, docker-compose.local.yml"
+alwaysApply: false
+---
+
+# CI/CD & Docker Directory Structure
+
+Manage container configurations using the following dedicated layout:
+
+- `ci_cd/`
+  - `[docker_entity_name]/` : A separate directory for each Docker service/entity (e.g., `fastapi/`, `nginx/`).
+    - `Dockerfile` : Production and development build steps for the specific service.
+    - `requirements.txt` / configuration files required exclusively by this specific Docker entity.

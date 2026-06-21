@@ -1,0 +1,93 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-rags}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    restart: unless-stopped
+    volumes:
+      - qdrant_data:/qdrant/storage
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'cat < /dev/null > /dev/tcp/127.0.0.1/6333' 2>/dev/null && exit 0 || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+
+  ollama:
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    volumes:
+      - ollama_data:/root/.ollama
+      - ./ci_cd/ollama/entrypoint.sh:/entrypoint.sh
+    entrypoint: ["bash", "/entrypoint.sh"]
+    environment:
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-llama3.2}
+      OLLAMA_LIGHT_MODEL: ${OLLAMA_LIGHT_MODEL:-llama3.2:1b}
+    ports:
+      - "11434:11434"
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'cat < /dev/null > /dev/tcp/127.0.0.1/11434' 2>/dev/null && exit 0 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  backend:
+    build:
+      context: .
+      dockerfile: ci_cd/fastapi/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_HOST: postgres
+      QDRANT_HOST: qdrant
+      # OLLAMA_HOST is used only when GROQ_API_KEY is not set
+      OLLAMA_HOST: http://ollama:11434
+    volumes:
+      - ./app/backend:/app/backend
+      - ./vacancies.json:/app/vacancies.json
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ci_cd/frontend/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./app/frontend/src:/app/src
+      - ./app/frontend/public:/app/public
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost:8000
+      VITE_WS_URL: ws://localhost:8000
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+  qdrant_data:
+  ollama_data:

@@ -1,0 +1,18 @@
+{
+  "name": "cv_upload",
+  "description": "Upload a PDF CV file and attach the extracted plain text to an existing chat session. The text becomes permanent context for all subsequent RAG queries in that session. Accepts multipart/form-data with a 'file' field. Maximum file size: 10 MB. Scanned (image-only) PDFs without selectable text are rejected with 422. Returns the session ID, character count of extracted text, and a 200-character preview.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "session_id": {
+        "type": "string",
+        "description": "UUID of the session to attach the CV to."
+      },
+      "file": {
+        "type": "string",
+        "description": "PDF file content as multipart/form-data. Must have content-type application/pdf."
+      }
+    },
+    "required": ["session_id", "file"]
+  }
+}

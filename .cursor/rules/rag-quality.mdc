@@ -1,0 +1,213 @@
+---
+description: RAG system quality standard — critical scenarios, implemented architecture, and evaluation protocol.
+globs: ["app/backend/ml/**", "app/backend/tests/test_rag_eval.py", "app/backend/tests/eval_dataset_golden.json"]
+alwaysApply: false
+---
+
+# RAG Quality Standard
+
+## Pipeline Architecture
+
+```
+intent_classifier → [off_topic → off_topic_responder → END]
+                 → metadata_extractor
+                 → query_translator
+                 → retriever (hybrid dense+sparse, RRF)
+                 → relevance_grader
+                 → generator
+                 → groundedness_grader
+```
+
+### Components
+| Component | File | Responsibility | Model |
+|---|---|---|---|
+| intent_classifier | `ml/nodes/intent_classifier.py` | Classify query into 7 intents | **3B** (needs reliable reasoning) |
+| off_topic_responder | `ml/nodes/off_topic_responder.py` | Immediate refusal, bypasses RAG | — |
+| metadata_extractor | `ml/nodes/metadata_extractor.py` | Extract hard filters + `exclude_skills` | **3B** (guardrail-critical extraction; 1B hallucinated hard filters) |
+| query_translator | `ml/nodes/query_translator.py` | Rewrite into 3 diversified search queries | **1B** (template generation) |
+| retriever | `ml/nodes/retriever.py` | Hybrid Qdrant search (dense+sparse) + RRF | — |
+| relevance_grader | `ml/nodes/relevance_grader.py` | Filter results + apply `exclude_skills` | **3B** (grades up to 20 docs) |
+| generator | `ml/nodes/generator.py` | Intent-specific prompt → LLM answer | **3B** (quality matters) |
+| groundedness_grader | `ml/nodes/groundedness_grader.py` | Hallucination detection | **3B** (needs accuracy) |
+
+### LLM Provider & Split-Model Strategy
+
+The provider is **auto-selected** at startup via `ml/llm_service.py` (`AbstractLLMService` DIP pattern):
+- **`GROQ_API_KEY` set** → `GroqLLMService` (cloud, LPU-accelerated — recommended)
+- **No key** → `OllamaLLMService` (local fallback)
+
+| Mode | Heavy model | Light model | Latency |
+|---|---|---|---|
+| Groq (cloud) | `llama-3.3-70b-versatile` | `llama-3.1-8b-instant` | ~1–3 s |
+| Ollama (local CPU) | `llama3.2` (3B) | `llama3.2:1b` (1B) | ~60–120 s |
+
+**Split-model rationale:** `query_translator` uses the light model because it does template-like query diversification. `metadata_extractor` intentionally uses the heavy model even though it returns structured JSON: hallucinated hard filters silently empty Qdrant results, so correctness matters more than latency. Heavy nodes (`intent_classifier`, `metadata_extractor`, `relevance_grader`, `generator`, `groundedness_grader`) require reliable reasoning or guardrail accuracy and get the larger model.
+
+**Config keys:** `GROQ_API_KEY`, `GROQ_LLM_MODEL`, `GROQ_LIGHT_LLM_MODEL` in `.env`.
+
+### Intents
+| Intent | Trigger | Special behavior |
+|---|---|---|
+| `find_matching` | Default — find vacancies | — |
+| `role_transition` | "switch roles", "move to X" | Excludes current role from results |
+| `compare` | "which is better", "best from these" | Returns single winner with justification |
+| `clarify_vacancy` | Follow-up on specific vacancy | Targets previously mentioned vacancy |
+| `followup` | Refining previous query | Uses chat history to apply delta filters |
+| `aggregate` | Synthesis across many vacancies | Widens `top_k` to 20, broad retrieval |
+| `off_topic` | Non-job-related query | Early exit — canned refusal response |
+
+---
+
+## Critical Quality Scenarios
+
+### 1. Out-of-Scope
+**Examples:** "Who is stronger, Batman or Superman?", "How to cook borscht?"
+**Expected:** Polite refusal — "I'm a job vacancy assistant..."
+**Implementation:** `off_topic` intent → `off_topic_responder_node` → `END` (bypasses RAG entirely)
+**Test:** `test_off_topic_refusal` — assert refusal phrase in response
+
+### 2. Ambiguous / Vague Formulations
+**Examples:** "I need a job with a high salary", "Looking for a Senior position" (only Middle/Lead available)
+**Expected:** Returns closest match, explicitly notes if exact level/criteria not available
+**Implementation:** `find_matching` generator prompt includes "if requested level not found, state what IS available"
+**Test:** Manual + Ragas Answer Relevancy ≥ 0.65
+
+### 3. Multi-hop / Synthesis
+**Examples:** "Which companies offer relocation + health insurance?", "Compare salaries for Middle vs Senior Python devs"
+**Expected:** Aggregated answer covering multiple vacancies with concrete data
+**Implementation:** `aggregate` intent → `query_translator` uses broad queries → retriever `top_k=20` → generator synthesis prompt
+**Test:** `test_aggregate_query` — assert answer mentions multiple companies/data points
+
+### 4. Negative / Exclusions
+**Examples:** "Python vacancies but without Django", "Positions not requiring English"
+**Expected:** Results do NOT mention excluded technologies
+**Implementation:** `metadata_extractor` extracts `exclude_skills` → `relevance_grader` post-filters by string match
+**Test:** `test_negative_constraint` — assert excluded tech absent from answer
+
+### 5. Comparative
+**Examples:** "What's the difference between vacancy A and B?", "Which is better for someone with 4 years React?"
+**Expected:** Direct comparison, recommends ONE best fit
+**Implementation:** `compare` intent → generator returns single winner with concise rationale
+**Test:** Manual + Ragas Answer Relevancy
+
+### 6. Edge Cases (Typos / Synonyms)
+**Examples:** "Питон", "react js", "k8s", "dev ops", "backend engineer" = "server-side"
+**Expected:** Correct results despite non-standard spelling
+**Implementation:** Dense semantic embeddings (BAAI/bge-small-en-v1.5) handle synonyms naturally; `query_translator` rewrites noisy input to canonical terms
+**Test:** `test_robustness_typos` — pipeline returns non-empty answer for queries with deliberate typos
+
+### 7. Hallucination & Groundedness Traps
+**Examples:** "What soft skills are needed in most vacancies?" (not explicitly stated), invented salary figures
+**Expected:** Answer only uses data present in retrieved vacancies; does not invent missing details
+**Implementation:** `groundedness_grader_node` — LLM-based fact-checking against source data; generator `_CONSTRAINTS` prohibits invented facts. Failed drafts are discarded, the failure reason is stored in `grounding_feedback`, and the graph retries generation with that feedback.
+**Test:** Ragas `Faithfulness` ≥ 0.70
+
+### 8. Robustness to Noisy Input / Multi-turn
+**Examples:** "Слушай, ищу нормальную работу на питоне, платили б нормально и без офиса"; follow-up clarifications
+**Expected:** Understands colloquial request; multi-turn context preserved across messages
+**Implementation:** `query_translator` normalises noisy input; `chat_history` (rolling summary) preserves context
+**Test:** `test_colloquial_query` — assert non-empty, relevant answer
+
+---
+
+## Metrics & Observability
+
+### Real-time Metrics (collected on every query)
+Every completed pipeline run writes one row to the `query_stats` PostgreSQL table.
+
+| Field | Type | What it measures |
+|---|---|---|
+| `total_latency_ms` | int | End-to-end response time |
+| `node_timings_ms` | JSON | Per-node wall-clock time (all 7 nodes) |
+| `intent` | str | Classified user intent |
+| `retrieved_count` | int | Vacancies returned by retriever |
+| `graded_count` | int | Vacancies that passed relevance grading |
+| `is_grounded` | bool | Groundedness grader result |
+| `was_fallback` | bool | No answer generated (fallback text sent) |
+| `was_off_topic` | bool | Query classified as off_topic |
+| `retry_count` | int | Groundedness retry count |
+| `input_tokens` | int? | Prompt token count (from Ollama response metadata) |
+| `output_tokens` | int? | Completion token count (from Ollama response metadata) |
+
+**Implementation:**
+- `ml/timing.py` — `@timed_node("name")` decorator wraps every async node, stores `elapsed_ms` into `state["node_timings"]`
+- `ml/nodes/generator.py` — reads `response.response_metadata["prompt_eval_count"]` / `eval_count`
+- `chat/service.py` — after `rag_graph.astream()` finishes, assembles `QueryStat` from final state and calls `stats_repo.save()`
+- `stats/repository.py` — aggregation functions (totals, averages, distributions)
+
+**API endpoints:**
+```
+GET /api/v1/stats/         → aggregated summary
+GET /api/v1/stats/recent   → last N query rows
+```
+
+### Stats Dashboard
+URL: **http://localhost:5173/stats**
+
+Displays: total queries · avg latency · fallback rate · off-topic rate · token counts · intent distribution bar chart · per-node latency bar chart · recent queries table with intent badge.
+
+### Metric Categories
+
+**Generation quality (offline Ragas eval):**
+| Metric | Minimum | What it checks |
+|---|---|---|
+| Faithfulness | ≥ 0.70 | No hallucinations — answer only uses retrieved data |
+| Answer Relevancy | ≥ 0.65 | Answer addresses the question asked |
+
+**Retrieval quality (offline Ragas eval):**
+| Metric | Minimum | What it checks |
+|---|---|---|
+| LLM Context Recall | ≥ 0.60 | Retriever surfaces the needed documents |
+| LLM Context Precision | ≥ 0.60 | No noisy/irrelevant documents retrieved |
+
+**Performance (real-time, `query_stats` table):**
+| Metric | Source | What it measures |
+|---|---|---|
+| Latency (total + per-node) | `node_timings_ms` | Where time is spent in the pipeline |
+| Token count | `input_tokens` / `output_tokens` | CPU load and generation cost |
+| Intent Accuracy | `intent` field | Distribution of classified intents over time |
+| Fallback Rate | `was_fallback` | How often the pipeline fails to produce an answer |
+| Off-topic Rate | `was_off_topic` | How often users send unrelated queries |
+
+---
+
+## Evaluation Protocol
+
+### Behavioral Tests (fast, ~30 sec, no Ragas)
+| Test | Category | Assertion |
+|---|---|---|
+| `test_off_topic_refusal` | Out-of-Scope | Refusal phrase in response |
+| `test_negative_constraint` | Negative | Excluded tech absent from answer |
+| `test_aggregate_query` | Multi-hop | Multiple data points in answer |
+| `test_robustness_typos` | Typos/Synonyms | Non-empty relevant answer |
+| `test_colloquial_query` | Noisy input | Non-empty relevant answer |
+| `test_ambiguous_level` | Ambiguous | Notes unavailable level |
+
+### Golden Dataset
+File: `app/backend/tests/eval_dataset_golden.json`
+- 30+ questions across all 8 categories
+- Each entry: `category`, `question`, `reference`, `expected_behavior`
+- `expected_behavior` values: `answer`, `refusal`, `partial`
+
+### Running Tests
+```bash
+# Behavioral tests only (fast, ~30 sec):
+docker exec rags-backend-1 pytest -m behavioral -v
+
+# Full Ragas eval (slow, ~20 min):
+RUN_EVAL_TESTS=1 docker exec rags-backend-1 pytest -m eval -v
+
+# Both:
+RUN_EVAL_TESTS=1 docker exec rags-backend-1 pytest -m "behavioral or eval" -v
+```
+
+---
+
+## Development Rules
+
+- Every new node MUST handle `state.get("intent")` defensively — fall back to `find_matching`
+- `exclude_skills` filtering is done in `relevance_grader`, NOT in Qdrant queries (no structured index for skills)
+- Generator prompts are intent-specific — do NOT add generic rules to a shared prompt
+- `_CONSTRAINTS` block is appended to all generator prompts — do not duplicate its rules inline
+- The `off_topic_responder` response text is fixed — do not make it LLM-generated
+- Groundedness grader failure MUST discard the unsupported draft and retry with `grounding_feedback`; after `rag_max_retries`, return the normal fallback instead of delivering an ungrounded answer.

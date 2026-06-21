@@ -1,0 +1,74 @@
+---
+description: MCP integration standards — how real MCP tools are exposed from the FastAPI backend via fastapi-mcp
+globs:
+  - "app/backend/**/router.py"
+  - "app/backend/main.py"
+  - ".cursor/mcp.json"
+alwaysApply: false
+---
+
+# MCP Integration Standards
+
+The project uses **`fastapi-mcp`** to automatically expose every FastAPI endpoint
+as a callable MCP tool in Cursor.  No manual JSON descriptor files are needed —
+tools are derived from the OpenAPI schema at runtime.
+
+## How It Works
+
+`fastapi-mcp` is mounted in `app/backend/main.py` after all routers are registered:
+
+```python
+from fastapi_mcp import FastApiMCP
+
+mcp = FastApiMCP(app)
+mcp.mount()   # exposes MCP server at /mcp
+```
+
+Cursor connects to the MCP server via `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "rags-backend": {
+      "type": "http",
+      "url": "http://localhost:8000/mcp"
+    }
+  }
+}
+```
+
+The backend must be running (`docker compose up`) for Cursor to call these tools.
+
+## Available Tool Groups
+
+| Router | Prefix | Example tools |
+|---|---|---|
+| `vacancies/router.py` | `/api/v1/vacancies` | ingest vacancies, search vacancies |
+| `chat/router.py` | `/api/v1/chat` | get message history, clear messages |
+| `cv/router.py` | `/api/v1/cv` | upload CV, clear CV, check CV status |
+| `admin/router.py` | `/api/v1/admin` | list sessions, Qdrant stats, Qdrant direct search |
+| `stats/router.py` | `/api/v1/stats` | get aggregated pipeline metrics, recent query log, clear stats |
+
+## Adding New Tools
+
+Every new `router.py` endpoint is **automatically** picked up — no extra steps.
+To make a good MCP tool:
+
+1. Write a clear `summary=` and `description=` on the FastAPI route decorator.
+2. Use `response_model=` so the tool's output schema is known.
+3. Use Pydantic request bodies — they map directly to tool input parameters.
+
+## Admin / Read-Only Inspection Tools
+
+`app/backend/admin/router.py` provides read-only endpoints specifically for
+development and debugging, exposed as MCP tools:
+
+| Endpoint | What it returns |
+|---|---|
+| `GET /api/v1/admin/sessions` | Recent chat sessions with message count and summary status |
+| `GET /api/v1/admin/sessions/{id}/messages` | Full message history for a session |
+| `GET /api/v1/admin/qdrant/stats` | Qdrant collection point/vector counts and status |
+| `GET /api/v1/admin/qdrant/search` | Direct hybrid search bypassing the RAG pipeline |
+
+These endpoints have no write side-effects and are safe for Cursor to call
+during development.
