@@ -18,6 +18,8 @@ cp .env.example .env
 
 Edit `.env` and set at least `GROQ_API_KEY` if you want fast cloud inference (recommended). Without it, the stack falls back to local Ollama (slower on CPU).
 
+So, you should get the token on groq website, it's easy.
+
 ```bash
 docker compose -f docker-compose.local.yml up --build
 ```
