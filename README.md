@@ -18,7 +18,7 @@ cp .env.example .env
 
 Edit `.env` and set at least `GROQ_API_KEY` if you want fast cloud inference (recommended). Without it, the stack falls back to local Ollama (slower on CPU).
 
-So, you should get the token on groq website, it's easy.
+So, you should get the token on groq website, it's easy. There is token limits, that's why RAG could stop to reply. Currently this case is not fixed. For development was used downloaded model to start development (it was slow) and swtiched to groq usage closer fo finish. 
 
 ```bash
 docker compose -f docker-compose.local.yml up --build
