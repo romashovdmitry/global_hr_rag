@@ -3,7 +3,7 @@
 > [!NOTE]
 > **About the UI:** The frontend is a lightweight convenience layer for local demos. Please do not judge the project primarily by its interface — the focus here is the RAG pipeline, not visual polish.
 
-A RAG system written in 2 days, inspired by [globalwork.ai](https://globalwork.ai), built around mock IT vacancy data from `vacancies.json` at the project root, with optional CV upload (PDF) for personalized matching. The app is a single-window, single-user chat — the emphasis is on RAG-core, not on UX.
+A RAG system written in 2 days with AI-tools, inspired by [globalwork.ai](https://globalwork.ai), built around mock IT vacancy data from `vacancies.json` at the project root, with optional CV upload (PDF) for personalized matching. The app is a single-window, single-user chat — the emphasis is on RAG-core, not on UX.
 
 
 ---
