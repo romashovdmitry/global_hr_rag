@@ -33,6 +33,8 @@ docker compose -f docker-compose.local.yml up --build
 
 On first startup the backend bootstraps Qdrant, ingests `vacancies.json` if the collection is empty, and runs Alembic migrations automatically.
 
+At the top there are 2 buttons to download your CV in PDF format and clear your chat history.
+
 ---
 
 ## Beyond vanilla RAG
@@ -129,12 +131,12 @@ This project adds a multi-stage LangGraph pipeline on top of that baseline. Here
 
 ### Chat
 
-![]()
+![](screenshots/1.png)
 
 
 ### Stat
 
-![]()
+![](screenshots/2.png)
 
 ---
 

@@ -221,3 +221,7 @@ __marimo__/
 # Notes files for local development
 
 RAG_CORE_PATH.MD
+
+# Apple system files
+
+.DS_Store
