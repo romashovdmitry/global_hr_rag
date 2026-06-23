@@ -18,21 +18,21 @@ cp .env.example .env
 
 Edit `.env` and set at least `GROQ_API_KEY` if you want fast cloud inference (recommended). Without it, the stack falls back to local Ollama (slower on CPU).
 
-So, you should get the token on groq website, it's easy. There is token limits, that's why RAG could switch to downloaded model and become slower a lot.
+So, you should get the token on groq website, it's easy. There is token limits, that's why RAG could stop to reply.
 
-I used downloaded models in development but they were too much slow and I switched to grioq without preparing of any fallback. It should be fixed in next development steos of course and any fallback strategy should be implemented.
+I used downloaded models in development but they were too much slow and I switched to groq without preparing of any fallback. It should be fixed in next development steps of course and any fallback strategy should be implemented.
 
 ```bash
 docker compose -f docker-compose.local.yml up --build
 ```
 
-After launch you should wait while models would be donwloaded. You will message like that
+After launch you should wait while models would be downloaded. You will see message like that
 
 ```bash
 [ollama-init] All models ready.
 ```
 
-That's the problem to fix in future too by updating docker-infrastructure. Currently backend container could be runned before models are downloaded.
+That's the problem to fix in future by updating docker-infrastructure too. Currently backend container could be runned before models are downloaded.
 
 | Service  | URL                          |
 |----------|------------------------------|
